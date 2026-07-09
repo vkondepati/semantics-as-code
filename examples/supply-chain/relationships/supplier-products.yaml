@@ -1,0 +1,13 @@
+id: supplier-products
+kind: relationship
+name: Supplier Products
+display_name: Supplier Products
+description: A supplier can provide many products and a product may have multiple suppliers.
+from: Supplier
+to: Product
+relationship_type: many_to_many
+owner: Procurement Operations
+domain: Procurement
+version: 0.1.0
+status: active
+extensions: {}

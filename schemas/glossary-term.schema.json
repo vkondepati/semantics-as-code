@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semantics-as-code.org/schemas/glossary-term.schema.json",
+  "title": "Glossary Term",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "name", "display_name", "definition", "owner", "version"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "const": "glossary_term" },
+    "name": { "type": "string", "minLength": 1 },
+    "display_name": { "type": "string", "minLength": 1 },
+    "definition": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 },
+    "steward": { "type": "string" },
+    "domain": { "type": "string" },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "active", "deprecated", "retired"] },
+    "classification": { "enum": ["Public", "Internal", "Confidential", "Restricted"] },
+    "synonyms": { "type": "array", "items": { "type": "string" } },
+    "related_objects": { "type": "array", "items": { "type": "string" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "string" },
+    "extensions": { "type": "object" }
+  }
+}

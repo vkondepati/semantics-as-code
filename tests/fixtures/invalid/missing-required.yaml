@@ -1,0 +1,6 @@
+id: invalid-entity
+kind: entity
+name: Invalid Entity
+display_name: Invalid Entity
+description: Missing required business key and owner fields.
+version: 0.1.0

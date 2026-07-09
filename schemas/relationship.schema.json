@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semantics-as-code.org/schemas/relationship.schema.json",
+  "title": "Relationship",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "name", "display_name", "description", "from", "to", "relationship_type", "version"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "const": "relationship" },
+    "name": { "type": "string", "minLength": 1 },
+    "display_name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "from": { "type": "string", "minLength": 1 },
+    "to": { "type": "string", "minLength": 1 },
+    "relationship_type": { "enum": ["one_to_one", "one_to_many", "many_to_one", "many_to_many"] },
+    "owner": { "type": "string" },
+    "domain": { "type": "string" },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "active", "deprecated", "retired"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "string" },
+    "extensions": { "type": "object" }
+  }
+}

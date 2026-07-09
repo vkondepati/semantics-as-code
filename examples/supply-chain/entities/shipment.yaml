@@ -1,0 +1,27 @@
+id: shipment
+kind: entity
+name: Shipment
+display_name: Shipment
+description: Movement of ordered goods from a warehouse or supplier to a destination.
+business_key: shipment_id
+owner: Logistics Operations
+steward: Data Governance
+domain: Logistics
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.shipment
+relationships:
+  - Order
+  - Warehouse
+  - Region
+synonyms:
+  - Delivery
+business_rules:
+  - delivered_at must be greater than or equal to shipped_at.
+quality:
+  - shipment_id completeness > 99%
+knowledge_graph: Shipment
+ai_context: Represents the logistics movement used to evaluate delivery and service performance.
+extensions: {}

@@ -1,0 +1,11 @@
+id: domain-id
+kind: domain
+name: Domain Name
+display_name: Domain Name
+description: Describe the business area owned by this domain.
+owner: Business Owner
+steward: Data Steward
+version: 0.1.0
+status: draft
+tags: []
+extensions: {}

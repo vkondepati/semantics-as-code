@@ -1,0 +1,14 @@
+id: inventory-turnover-term
+kind: glossary_term
+name: Inventory Turnover
+display_name: Inventory Turnover
+definition: Efficiency measure showing how often inventory is sold or consumed over a period.
+owner: Inventory Operations
+steward: Data Governance
+domain: Inventory
+version: 0.1.0
+status: active
+classification: Internal
+related_objects:
+  - Inventory Turnover
+extensions: {}

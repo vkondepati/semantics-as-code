@@ -1,0 +1,26 @@
+id: warehouse
+kind: entity
+name: Warehouse
+display_name: Warehouse
+description: Physical or logical location where inventory is stored and fulfilled.
+business_key: warehouse_id
+owner: Inventory Operations
+steward: Data Governance
+domain: Inventory
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.warehouse
+relationships:
+  - Inventory Item
+  - Region
+synonyms:
+  - Distribution Center
+business_rules:
+  - each warehouse belongs to exactly one operating region.
+quality:
+  - warehouse_id completeness > 99%
+knowledge_graph: Warehouse
+ai_context: Represents the storage and fulfillment location for inventory and shipments.
+extensions: {}

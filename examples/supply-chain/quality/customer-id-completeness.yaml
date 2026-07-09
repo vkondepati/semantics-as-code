@@ -1,0 +1,14 @@
+id: customer-id-completeness
+kind: quality_expectation
+name: Customer ID Completeness
+display_name: Customer ID Completeness
+description: Customer records must have a populated customer identifier.
+target: Customer
+expectation: customer_id completeness > 99%
+severity: error
+owner: Sales Operations
+steward: Data Governance
+domain: Sales
+version: 0.1.0
+status: active
+extensions: {}

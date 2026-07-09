@@ -1,0 +1,14 @@
+id: glossary-term-id
+kind: glossary_term
+name: Glossary Term
+display_name: Glossary Term
+definition: Define the business term in plain language.
+owner: Business Owner
+steward: Data Steward
+domain: Domain Name
+version: 0.1.0
+status: draft
+classification: Internal
+synonyms: []
+related_objects: []
+extensions: {}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semantics-as-code.org/schemas/entity.schema.json",
+  "title": "Entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "name", "display_name", "description", "business_key", "owner", "version"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "const": "entity" },
+    "name": { "type": "string", "minLength": 1 },
+    "display_name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "business_key": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 },
+    "steward": { "type": "string" },
+    "domain": { "type": "string" },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "active", "deprecated", "retired"] },
+    "classification": { "enum": ["Public", "Internal", "Confidential", "Restricted"] },
+    "pii": { "type": "boolean" },
+    "canonical_table": { "type": "string" },
+    "relationships": { "type": "array", "items": { "type": "string" } },
+    "synonyms": { "type": "array", "items": { "type": "string" } },
+    "business_rules": { "type": "array", "items": { "type": "string" } },
+    "quality": { "type": "array", "items": { "type": "string" } },
+    "knowledge_graph": { "type": "string" },
+    "ai_context": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "string" },
+    "extensions": { "type": "object" }
+  },
+  "examples": [
+    {
+      "id": "customer",
+      "kind": "entity",
+      "name": "Customer",
+      "display_name": "Customer",
+      "description": "Master customer entity.",
+      "business_key": "customer_id",
+      "owner": "Sales",
+      "version": "0.1.0"
+    }
+  ]
+}

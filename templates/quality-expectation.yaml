@@ -1,0 +1,14 @@
+id: quality-expectation-id
+kind: quality_expectation
+name: Quality Expectation Name
+display_name: Quality Expectation Name
+description: Describe the data quality expectation in business terms.
+target: Entity or Metric Name
+expectation: completeness > 99%
+severity: error
+owner: Business Owner
+steward: Data Steward
+domain: Domain Name
+version: 0.1.0
+status: draft
+extensions: {}

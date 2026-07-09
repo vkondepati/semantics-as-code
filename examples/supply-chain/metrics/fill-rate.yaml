@@ -1,0 +1,25 @@
+id: fill-rate
+kind: metric
+name: Fill Rate
+display_name: Fill Rate
+description: Percentage of ordered quantity fulfilled from available inventory without shortage.
+formula: SUM(fulfilled_quantity) / SUM(ordered_quantity)
+grain: Order
+owner: Sales Operations
+steward: Data Governance
+domain: Sales
+version: 0.1.0
+status: active
+classification: Internal
+dimensions:
+  - Product
+  - Warehouse
+  - Region
+quality:
+  - fulfilled_quantity completeness > 98%
+synonyms:
+  - Order Fill Rate
+glossary_terms:
+  - Fill Rate
+ai_context: Use this metric to evaluate ability to satisfy demand from available stock.
+extensions: {}

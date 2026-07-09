@@ -1,0 +1,19 @@
+id: test-metric
+kind: metric
+name: Test Metric
+display_name: Test Metric
+description: A valid metric used by automated tests.
+formula: COUNT(test_entity_id)
+grain: Test Entity
+owner: Test Owner
+steward: Test Steward
+domain: Test Domain
+version: 0.1.0
+status: active
+classification: Internal
+dimensions:
+  - Test Entity
+quality:
+  - reconciles with test fixture expectations.
+ai_context: Represents a test metric for validation.
+extensions: {}

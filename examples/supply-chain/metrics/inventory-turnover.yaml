@@ -1,0 +1,25 @@
+id: inventory-turnover
+kind: metric
+name: Inventory Turnover
+display_name: Inventory Turnover
+description: Rate at which inventory is sold or consumed relative to average inventory value.
+formula: SUM(cost_of_goods_sold) / AVG(inventory_value)
+grain: Inventory Item
+owner: Inventory Operations
+steward: Data Governance
+domain: Inventory
+version: 0.1.0
+status: active
+classification: Internal
+dimensions:
+  - Product
+  - Warehouse
+  - Region
+quality:
+  - inventory_value reconciles to monthly inventory close.
+synonyms:
+  - Stock Turn
+glossary_terms:
+  - Inventory Turnover
+ai_context: Use this metric to evaluate how efficiently inventory is being converted into sales.
+extensions: {}

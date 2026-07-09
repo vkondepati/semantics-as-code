@@ -1,0 +1,20 @@
+id: metric-id
+kind: metric
+name: Metric Name
+display_name: Metric Name
+description: Describe the business meaning and intended use of this metric.
+formula: SUM(source_column)
+grain: Entity Name
+owner: Business Owner
+steward: Data Steward
+domain: Domain Name
+version: 0.1.0
+status: draft
+classification: Internal
+dimensions: []
+filters: []
+quality: []
+synonyms: []
+glossary_terms: []
+ai_context: Explain how AI systems should interpret this metric.
+extensions: {}

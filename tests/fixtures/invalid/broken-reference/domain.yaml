@@ -1,0 +1,9 @@
+id: broken-domain
+kind: domain
+name: Broken Domain
+display_name: Broken Domain
+description: Domain used for broken reference tests.
+owner: Test Owner
+version: 0.1.0
+status: active
+extensions: {}

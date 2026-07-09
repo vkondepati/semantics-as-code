@@ -1,0 +1,12 @@
+id: inventory
+kind: domain
+name: Inventory
+display_name: Inventory
+description: Stock position, warehouse, and inventory movement management domain.
+owner: Inventory Operations
+steward: Data Governance
+version: 0.1.0
+status: active
+tags:
+  - supply-chain
+extensions: {}

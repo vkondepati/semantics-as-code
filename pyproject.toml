@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semantics-as-code"
+version = "0.1.0"
+description = "Vendor-neutral enterprise business semantics as code."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "Venkat Kondepati" }
+]
+dependencies = [
+  "jsonschema>=4.22",
+  "PyYAML>=6.0",
+  "typer>=0.12"
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0"
+]
+
+[project.scripts]
+semantics = "semantics.cli:app"
+
+[tool.setuptools]
+package-dir = { "" = "cli" }
+
+[tool.setuptools.packages.find]
+where = ["cli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["cli"]

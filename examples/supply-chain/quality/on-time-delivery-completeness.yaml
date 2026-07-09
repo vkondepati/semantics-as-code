@@ -1,0 +1,14 @@
+id: on-time-delivery-completeness
+kind: quality_expectation
+name: On-Time Delivery Completeness
+display_name: On-Time Delivery Completeness
+description: Delivered shipments must have promised and actual delivery dates.
+target: On-Time Delivery Rate
+expectation: promised_delivery_date and delivered_at completeness > 98%
+severity: error
+owner: Logistics Operations
+steward: Data Governance
+domain: Logistics
+version: 0.1.0
+status: active
+extensions: {}

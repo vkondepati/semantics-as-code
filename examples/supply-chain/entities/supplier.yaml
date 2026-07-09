@@ -1,0 +1,26 @@
+id: supplier
+kind: entity
+name: Supplier
+display_name: Supplier
+description: External party that provides goods or services to the enterprise.
+business_key: supplier_id
+owner: Procurement Operations
+steward: Data Governance
+domain: Procurement
+version: 0.1.0
+status: active
+classification: Confidential
+pii: false
+canonical_table: gold.supplier
+relationships:
+  - Product
+  - Inventory Item
+synonyms:
+  - Vendor
+business_rules:
+  - suppliers must have an active compliance status before purchasing.
+quality:
+  - supplier_id completeness > 99%
+knowledge_graph: Supplier
+ai_context: Represents a source of purchased materials, finished goods, or services.
+extensions: {}

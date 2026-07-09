@@ -1,0 +1,21 @@
+id: entity-id
+kind: entity
+name: Entity Name
+display_name: Entity Name
+description: Describe the business meaning of this entity.
+business_key: entity_id
+owner: Business Owner
+steward: Data Steward
+domain: Domain Name
+version: 0.1.0
+status: draft
+classification: Internal
+pii: false
+canonical_table: gold.entity_table
+relationships: []
+synonyms: []
+business_rules: []
+quality: []
+knowledge_graph: EntityName
+ai_context: Explain how AI systems should interpret this entity.
+extensions: {}

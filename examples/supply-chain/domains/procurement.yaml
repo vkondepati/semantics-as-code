@@ -1,0 +1,12 @@
+id: procurement
+kind: domain
+name: Procurement
+display_name: Procurement
+description: Supplier sourcing, purchasing, and inbound supply management domain.
+owner: Procurement Operations
+steward: Data Governance
+version: 0.1.0
+status: active
+tags:
+  - supply-chain
+extensions: {}

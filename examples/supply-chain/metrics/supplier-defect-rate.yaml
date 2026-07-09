@@ -1,0 +1,24 @@
+id: supplier-defect-rate
+kind: metric
+name: Supplier Defect Rate
+display_name: Supplier Defect Rate
+description: Percentage of received supplier units that fail incoming quality inspection.
+formula: SUM(defective_units) / SUM(received_units)
+grain: Supplier
+owner: Procurement Operations
+steward: Data Governance
+domain: Procurement
+version: 0.1.0
+status: active
+classification: Internal
+dimensions:
+  - Supplier
+  - Product
+quality:
+  - received_units completeness > 99%
+synonyms:
+  - Vendor Defect Rate
+glossary_terms:
+  - Supplier Defect Rate
+ai_context: Use this metric to compare supplier quality performance across purchased items.
+extensions: {}

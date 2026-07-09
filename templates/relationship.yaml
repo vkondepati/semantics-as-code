@@ -1,0 +1,13 @@
+id: relationship-id
+kind: relationship
+name: Entity A to Entity B
+display_name: Entity A to Entity B
+description: Describe how the two semantic objects are related.
+from: Entity A
+to: Entity B
+relationship_type: one_to_many
+owner: Business Owner
+domain: Domain Name
+version: 0.1.0
+status: draft
+extensions: {}

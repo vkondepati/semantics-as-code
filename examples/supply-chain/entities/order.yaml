@@ -1,0 +1,27 @@
+id: order
+kind: entity
+name: Order
+display_name: Order
+description: Customer commitment to purchase one or more products under commercial terms.
+business_key: order_id
+owner: Sales Operations
+steward: Data Governance
+domain: Sales
+version: 0.1.0
+status: active
+classification: Confidential
+pii: false
+canonical_table: gold.order
+relationships:
+  - Customer
+  - Product
+  - Shipment
+synonyms:
+  - Sales Order
+business_rules:
+  - completed orders are eligible for revenue recognition.
+quality:
+  - order_id completeness > 99%
+knowledge_graph: Order
+ai_context: Represents the commercial transaction grain for revenue and fulfillment analysis.
+extensions: {}

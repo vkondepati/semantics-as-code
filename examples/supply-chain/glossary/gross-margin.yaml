@@ -1,0 +1,14 @@
+id: gross-margin-term
+kind: glossary_term
+name: Gross Margin
+display_name: Gross Margin
+definition: Revenue remaining after deducting cost of goods sold for completed transactions.
+owner: Finance
+steward: Data Governance
+domain: Finance
+version: 0.1.0
+status: active
+classification: Confidential
+related_objects:
+  - Gross Margin
+extensions: {}

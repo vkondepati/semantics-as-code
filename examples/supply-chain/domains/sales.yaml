@@ -1,0 +1,12 @@
+id: sales
+kind: domain
+name: Sales
+display_name: Sales
+description: Customer order capture and commercial performance domain.
+owner: Sales Operations
+steward: Data Governance
+version: 0.1.0
+status: active
+tags:
+  - supply-chain
+extensions: {}

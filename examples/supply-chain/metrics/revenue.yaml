@@ -1,0 +1,27 @@
+id: revenue
+kind: metric
+name: Revenue
+display_name: Revenue
+description: Recognized revenue for completed customer orders net of returns and credits.
+formula: SUM(net_sales_amount)
+grain: Order
+owner: Finance
+steward: Data Governance
+domain: Finance
+version: 0.1.0
+status: active
+classification: Confidential
+dimensions:
+  - Customer
+  - Product
+  - Region
+filters:
+  - order_status = 'Completed'
+quality:
+  - reconciles with ERP revenue ledger.
+synonyms:
+  - Net Sales
+glossary_terms:
+  - Recognized Revenue
+ai_context: Use this metric for financial revenue analysis after order completion.
+extensions: {}

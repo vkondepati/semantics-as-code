@@ -1,0 +1,12 @@
+id: logistics
+kind: domain
+name: Logistics
+display_name: Logistics
+description: Shipment planning, carrier execution, and delivery performance domain.
+owner: Logistics Operations
+steward: Data Governance
+version: 0.1.0
+status: active
+tags:
+  - supply-chain
+extensions: {}

@@ -1,0 +1,13 @@
+id: order-products
+kind: relationship
+name: Order Products
+display_name: Order Products
+description: An order can contain many products and a product can appear on many orders.
+from: Order
+to: Product
+relationship_type: many_to_many
+owner: Sales Operations
+domain: Sales
+version: 0.1.0
+status: active
+extensions: {}

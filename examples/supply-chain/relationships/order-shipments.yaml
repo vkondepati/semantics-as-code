@@ -1,0 +1,13 @@
+id: order-shipments
+kind: relationship
+name: Order Shipments
+display_name: Order Shipments
+description: An order can be fulfilled by one or more shipments.
+from: Order
+to: Shipment
+relationship_type: one_to_many
+owner: Logistics Operations
+domain: Logistics
+version: 0.1.0
+status: active
+extensions: {}

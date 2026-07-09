@@ -1,0 +1,19 @@
+id: broken-entity
+kind: entity
+name: Broken Entity
+display_name: Broken Entity
+description: Entity with a missing relationship reference.
+business_key: broken_entity_id
+owner: Test Owner
+steward: Test Steward
+domain: Broken Domain
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+relationships:
+  - Missing Entity
+quality:
+  - broken_entity_id completeness > 99%
+ai_context: Represents a broken reference test case.
+extensions: {}

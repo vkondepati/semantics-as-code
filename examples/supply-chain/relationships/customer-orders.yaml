@@ -1,0 +1,13 @@
+id: customer-orders
+kind: relationship
+name: Customer Orders
+display_name: Customer Orders
+description: A customer can place many sales orders.
+from: Customer
+to: Order
+relationship_type: one_to_many
+owner: Sales Operations
+domain: Sales
+version: 0.1.0
+status: active
+extensions: {}

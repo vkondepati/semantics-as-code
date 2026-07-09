@@ -1,0 +1,27 @@
+id: inventory-item
+kind: entity
+name: Inventory Item
+display_name: Inventory Item
+description: Quantity of a product held at a warehouse or supply chain location.
+business_key: inventory_item_id
+owner: Inventory Operations
+steward: Data Governance
+domain: Inventory
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.inventory_item
+relationships:
+  - Product
+  - Warehouse
+  - Supplier
+synonyms:
+  - Stock Item
+business_rules:
+  - on hand quantity cannot be negative after inventory close.
+quality:
+  - on_hand_quantity reconciles to warehouse management system.
+knowledge_graph: InventoryItem
+ai_context: Represents product stock available, reserved, damaged, or in transit at a location.
+extensions: {}

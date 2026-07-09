@@ -1,0 +1,41 @@
+name: Validate Semantics
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run tests
+        run: pytest
+
+      - name: Validate example package
+        run: semantics validate examples/supply-chain
+
+      - name: Lint example package
+        run: semantics lint examples/supply-chain
+
+      - name: Generate Markdown documentation
+        run: semantics generate examples/supply-chain --target markdown --output dist/docs
+
+      - name: Upload generated docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-docs
+          path: dist/docs

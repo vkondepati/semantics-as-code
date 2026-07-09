@@ -1,0 +1,27 @@
+id: region
+kind: entity
+name: Region
+display_name: Region
+description: Geographic or operating area used for sales, logistics, and inventory reporting.
+business_key: region_id
+owner: Enterprise Operations
+steward: Data Governance
+domain: Logistics
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.region
+relationships:
+  - Customer
+  - Warehouse
+synonyms:
+  - Market
+  - Territory
+business_rules:
+  - every operating location must map to one active region.
+quality:
+  - region_id completeness > 99%
+knowledge_graph: Region
+ai_context: Represents the geographic rollup for commercial and operational performance.
+extensions: {}

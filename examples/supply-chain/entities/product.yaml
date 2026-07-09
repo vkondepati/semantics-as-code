@@ -1,0 +1,27 @@
+id: product
+kind: entity
+name: Product
+display_name: Product
+description: Sellable or stocked item managed through the supply chain lifecycle.
+business_key: product_id
+owner: Product Operations
+steward: Data Governance
+domain: Inventory
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.product
+relationships:
+  - Order
+  - Inventory Item
+synonyms:
+  - Item
+  - SKU
+business_rules:
+  - product_id must be unique across all active product records.
+quality:
+  - product_id completeness > 99%
+knowledge_graph: Product
+ai_context: Represents an item that may be ordered, stocked, shipped, returned, or forecasted.
+extensions: {}

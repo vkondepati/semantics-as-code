@@ -1,0 +1,14 @@
+id: supplier-defect-rate-term
+kind: glossary_term
+name: Supplier Defect Rate
+display_name: Supplier Defect Rate
+definition: Percentage of received supplier units that fail quality inspection.
+owner: Procurement Operations
+steward: Data Governance
+domain: Procurement
+version: 0.1.0
+status: active
+classification: Internal
+related_objects:
+  - Supplier Defect Rate
+extensions: {}

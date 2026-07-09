@@ -1,0 +1,13 @@
+id: product-inventory
+kind: relationship
+name: Product Inventory
+display_name: Product Inventory
+description: A product can be represented by inventory items across warehouses.
+from: Product
+to: Inventory Item
+relationship_type: one_to_many
+owner: Inventory Operations
+domain: Inventory
+version: 0.1.0
+status: active
+extensions: {}

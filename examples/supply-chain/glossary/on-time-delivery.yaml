@@ -1,0 +1,16 @@
+id: on-time-delivery
+kind: glossary_term
+name: On-Time Delivery
+display_name: On-Time Delivery
+definition: Delivery performance where a shipment arrives on or before the promised delivery date.
+owner: Logistics Operations
+steward: Data Governance
+domain: Logistics
+version: 0.1.0
+status: active
+classification: Internal
+synonyms:
+  - OTD
+related_objects:
+  - On-Time Delivery Rate
+extensions: {}

@@ -1,0 +1,12 @@
+id: finance
+kind: domain
+name: Finance
+display_name: Finance
+description: Financial measurement, revenue recognition, and margin governance domain.
+owner: Finance
+steward: Data Governance
+version: 0.1.0
+status: active
+tags:
+  - supply-chain
+extensions: {}

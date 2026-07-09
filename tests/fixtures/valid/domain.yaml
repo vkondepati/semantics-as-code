@@ -1,0 +1,9 @@
+id: test-domain
+kind: domain
+name: Test Domain
+display_name: Test Domain
+description: A valid test business domain.
+owner: Test Owner
+version: 0.1.0
+status: active
+extensions: {}

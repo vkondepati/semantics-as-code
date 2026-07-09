@@ -1,0 +1,18 @@
+id: test-entity
+kind: entity
+name: Test Entity
+display_name: Test Entity
+description: A valid entity used by automated tests.
+business_key: test_entity_id
+owner: Test Owner
+steward: Test Steward
+domain: Test Domain
+version: 0.1.0
+status: active
+classification: Internal
+pii: false
+relationships: []
+quality:
+  - test_entity_id completeness > 99%
+ai_context: Represents a test entity for validation.
+extensions: {}

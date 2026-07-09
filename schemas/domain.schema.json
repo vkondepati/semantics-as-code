@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://semantics-as-code.org/schemas/domain.schema.json",
+  "title": "Domain",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "name", "display_name", "description", "owner", "version"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "kind": { "const": "domain" },
+    "name": { "type": "string", "minLength": 1 },
+    "display_name": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "owner": { "type": "string", "minLength": 1 },
+    "steward": { "type": "string" },
+    "version": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["draft", "active", "deprecated", "retired"] },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "source": { "type": "string" },
+    "extensions": { "type": "object" }
+  },
+  "examples": [
+    {
+      "id": "sales",
+      "kind": "domain",
+      "name": "Sales",
+      "display_name": "Sales",
+      "description": "Customer acquisition and order management domain.",
+      "owner": "Sales Operations",
+      "version": "0.1.0"
+    }
+  ]
+}

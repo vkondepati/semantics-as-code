@@ -1,0 +1,27 @@
+id: on-time-delivery-rate
+kind: metric
+name: On-Time Delivery Rate
+display_name: On-Time Delivery Rate
+description: Percentage of shipments delivered on or before the promised delivery date.
+formula: SUM(on_time_delivery_flag) / COUNT(shipment_id)
+grain: Shipment
+owner: Logistics Operations
+steward: Data Governance
+domain: Logistics
+version: 0.1.0
+status: active
+classification: Internal
+dimensions:
+  - Customer
+  - Warehouse
+  - Region
+filters:
+  - shipment_status = 'Delivered'
+quality:
+  - promised_delivery_date completeness > 98%
+synonyms:
+  - OTD
+glossary_terms:
+  - On-Time Delivery
+ai_context: Use this metric to evaluate logistics service performance for delivered shipments.
+extensions: {}

@@ -1,0 +1,27 @@
+id: gross-margin
+kind: metric
+name: Gross Margin
+display_name: Gross Margin
+description: Revenue remaining after subtracting cost of goods sold for completed orders.
+formula: SUM(net_sales_amount - cost_of_goods_sold)
+grain: Order
+owner: Finance
+steward: Data Governance
+domain: Finance
+version: 0.1.0
+status: active
+classification: Confidential
+dimensions:
+  - Customer
+  - Product
+  - Region
+filters:
+  - order_status = 'Completed'
+quality:
+  - reconciles with finance margin reporting.
+synonyms:
+  - Contribution Margin
+glossary_terms:
+  - Gross Margin
+ai_context: Use this metric to compare commercial profitability across customers, products, and regions.
+extensions: {}

@@ -1,0 +1,13 @@
+id: warehouse-inventory
+kind: relationship
+name: Warehouse Inventory
+display_name: Warehouse Inventory
+description: A warehouse stores many inventory items.
+from: Warehouse
+to: Inventory Item
+relationship_type: one_to_many
+owner: Inventory Operations
+domain: Inventory
+version: 0.1.0
+status: active
+extensions: {}

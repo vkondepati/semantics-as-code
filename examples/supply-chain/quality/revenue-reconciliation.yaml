@@ -1,0 +1,14 @@
+id: revenue-reconciliation
+kind: quality_expectation
+name: Revenue Reconciliation
+display_name: Revenue Reconciliation
+description: Revenue metric must reconcile to the finance ERP revenue ledger.
+target: Revenue
+expectation: monthly revenue variance against ERP ledger < 0.5%
+severity: critical
+owner: Finance
+steward: Data Governance
+domain: Finance
+version: 0.1.0
+status: active
+extensions: {}

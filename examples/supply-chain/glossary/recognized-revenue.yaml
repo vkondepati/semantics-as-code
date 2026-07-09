@@ -1,0 +1,16 @@
+id: recognized-revenue
+kind: glossary_term
+name: Recognized Revenue
+display_name: Recognized Revenue
+definition: Revenue that has met accounting recognition criteria for completed customer orders.
+owner: Finance
+steward: Data Governance
+domain: Finance
+version: 0.1.0
+status: active
+classification: Confidential
+synonyms:
+  - Net Sales
+related_objects:
+  - Revenue
+extensions: {}
