@@ -11,7 +11,9 @@ export const nav = [
   { label: "Examples", href: "/examples/" },
   { label: "Generators", href: "/generators/" },
   { label: "Enterprise Blueprint", href: "/enterprise-blueprint/" },
-  { label: "Roadmap", href: "/roadmap/" }
+  { label: "Roadmap", href: "/roadmap/" },
+  { label: "Author", href: "/author/" },
+  { label: "Comments", href: "/comments/" }
 ];
 
 export const objectKinds = [

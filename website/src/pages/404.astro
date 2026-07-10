@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { withBase } from "@lib/paths";
+---
+<BaseLayout title="Page Not Found" description="The requested Semantics as Code page was not found." path="/404/">
+  <section class="section">
+    <div class="shell prose">
+      <p class="kicker">404</p>
+      <h1>Page not found</h1>
+      <p class="lead">The page may not have been deployed yet, or the URL may have changed.</p>
+      <div class="hero-actions">
+        <a class="button primary" href={withBase("/")}>Go Home</a>
+        <a class="button secondary" href={withBase("/comments/")}>Open Comments</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    const base = "/semantics-as-code";
+    const path = window.location.pathname;
+    if (path === `${base}/comments` || path.startsWith(`${base}/comments/`)) {
+      window.location.replace(`${base}/comments/${window.location.search || ""}`);
+    }
+  </script>
+</BaseLayout>
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 28px;
+  }
+</style>

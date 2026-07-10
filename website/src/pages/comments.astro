@@ -1,0 +1,136 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+import { repo } from "@data/site";
+---
+<BaseLayout title="Comments and Feedback" description="Share comments, feedback, use cases, and contribution ideas for Semantics as Code." path="/comments/">
+  <section class="section">
+    <div class="shell comments-layout">
+      <div>
+        <p class="kicker">Community</p>
+        <h1>Comments and feedback</h1>
+        <p class="lead">Share a use case, propose a specification improvement, suggest an adapter, or describe an enterprise semantic modeling challenge. Feedback is opened as a prefilled GitHub issue so it is visible and trackable in the project repository.</p>
+      </div>
+      <form id="feedbackForm" class="feedback-card">
+        <label>
+          GitHub username or name
+          <input name="name" autocomplete="name" placeholder="@your-handle or name" required />
+        </label>
+        <label>
+          Topic
+          <select name="topic" required>
+            <option value="Specification feedback">Specification feedback</option>
+            <option value="Enterprise adoption">Enterprise adoption</option>
+            <option value="Generator or adapter idea">Generator or adapter idea</option>
+            <option value="Example or template contribution">Example or template contribution</option>
+            <option value="Website feedback">Website feedback</option>
+          </select>
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="7" placeholder="Describe the feedback, use case, proposal, or issue. Avoid sharing confidential information because GitHub issues are public." required></textarea>
+        </label>
+        <button class="button primary" type="submit">Open GitHub Issue</button>
+        <p class="hint">This static site does not store comments. The button opens a prefilled public GitHub issue in `vkondepati/semantics-as-code`.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="shell">
+      <SectionHeading kicker="Other ways to contribute" title="Use GitHub for trackable project discussion" text="For bugs, feature requests, and implementation proposals, GitHub issues and pull requests are the best place to keep context visible." />
+      <div class="grid">
+        <article class="card"><h3>Report an issue</h3><p>Describe the behavior, expected result, and the relevant YAML, command, or generated artifact.</p><a href={`${repo}/issues/new?labels=bug,feedback&title=${encodeURIComponent("Feedback: ")}`}>Open issue</a></article>
+        <article class="card"><h3>Propose a spec change</h3><p>Explain the object type, field, validation rule, or extension model you want to add or change.</p><a href={`${repo}/issues/new?labels=specification,proposal&title=${encodeURIComponent("Specification proposal: ")}`}>Start proposal</a></article>
+        <article class="card"><h3>Send a pull request</h3><p>Add examples, templates, generators, docs, tests, or adapter improvements with clear verification steps.</p><a href={`${repo}/pulls`}>Open pull requests</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading kicker="Page comments" title="Discuss this project through GitHub-backed comments" text="These comments are powered by GitHub Issues. They appear on this page, but the discussion lives in the repository for transparency and follow-up." />
+      <div class="comments-widget">
+        <script
+          is:inline
+          src="https://utteranc.es/client.js"
+          repo="vkondepati/semantics-as-code"
+          issue-term="pathname"
+          label="website-comments"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </div>
+      <p class="hint setup-note">If the comment box does not appear, install and enable the Utterances GitHub app for `vkondepati/semantics-as-code`.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <SectionHeading kicker="Useful context" title="Commands to include in feedback" />
+      <CodeBlock id="feedback-commands" code={`semantics validate examples/supply-chain\nsemantics lint examples/supply-chain\nsemantics generate examples/supply-chain --target html --output dist/html\npython -m pytest`} />
+    </div>
+  </section>
+
+  <script>
+    const form = document.querySelector("#feedbackForm");
+    const topicLabels = {
+      "Specification feedback": "specification,feedback",
+      "Enterprise adoption": "enterprise,feedback",
+      "Generator or adapter idea": "generator,adapter,enhancement",
+      "Example or template contribution": "examples,templates,contribution",
+      "Website feedback": "website,feedback"
+    };
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const topic = String(data.get("topic") || "Feedback");
+      const title = encodeURIComponent(`${topic}: `);
+      const labels = encodeURIComponent(topicLabels[topic] || "feedback");
+      const body = encodeURIComponent(
+        `## Feedback\n\n${data.get("message")}\n\n## Submitted by\n\n${data.get("name")}\n\n## Topic\n\n${topic}\n\n---\nSubmitted from the Semantics as Code website.`
+      );
+      window.location.href = `https://github.com/vkondepati/semantics-as-code/issues/new?title=${title}&labels=${labels}&body=${body}`;
+    });
+  </script>
+</BaseLayout>
+<style>
+  .comments-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.8fr);
+    gap: clamp(28px, 6vw, 72px);
+    align-items: start;
+  }
+  .feedback-card {
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+  label { display: grid; gap: 7px; color: var(--ink); font-weight: 800; }
+  input, select, textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    background: var(--paper);
+    font: inherit;
+  }
+  textarea { resize: vertical; }
+  .hint { margin: 0; color: var(--muted); font-size: 14px; }
+  .comments-widget {
+    min-height: 220px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+  }
+  .setup-note { margin-top: 12px; }
+  @media (max-width: 860px) { .comments-layout { grid-template-columns: 1fr; } }
+</style>

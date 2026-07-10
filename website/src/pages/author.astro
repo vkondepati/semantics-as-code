@@ -1,0 +1,198 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { repo } from "@data/site";
+import { withBase } from "@lib/paths";
+---
+<BaseLayout title="Author" description="Author profile for Venkata Kondepati, creator of Semantics as Code." path="/author/">
+  <section class="author-hero">
+    <div class="shell author-layout">
+      <div class="author-photo-wrap">
+        <img class="author-photo" src={withBase("/assets/venkata-kondepati-profile.png")} alt="Venkata Kondepati profile picture" loading="eager" />
+      </div>
+      <div class="author-intro">
+        <p class="kicker">Author</p>
+        <h1>Venkata Kondepati</h1>
+        <p class="hero-text">Technology leader focused on cloud innovation, scalable data platforms, enterprise AI, semantic architecture, and high-performing engineering organizations.</p>
+        <div class="author-actions">
+          <a class="button primary" href="mailto:venkata.kondepati@gmail.com">Email Venkata</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/venkatkondepati">Connect on LinkedIn</a>
+          <a class="button secondary" href="https://medium.com/@venkata.kondepati">Medium Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section author-content">
+    <div class="shell">
+      <div class="bio-lead">
+        <p>Let us connect if you are passionate about cloud innovation, scalable data platforms, enterprise semantics, AI-ready data, or building high-performing engineering organizations.</p>
+        <p><strong>Email:</strong> <a href="mailto:venkata.kondepati@gmail.com">venkata.kondepati@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/venkatkondepati">linkedin.com/in/venkatkondepati</a></p>
+      </div>
+
+      <div class="author-grid">
+        <article class="author-card wide">
+          <h2>Short Bio</h2>
+          <p>I bring 25+ years of global technology leadership experience across software engineering, data platforms, cloud modernization, product delivery, IAM, DevOps, SRE, GIS, and AI-driven transformation.</p>
+          <p>As a technology leader at S&amp;P Global and other enterprise organizations, I have led cross-functional global teams delivering cloud-native platforms across AWS, Azure, GCP, Snowflake, and Databricks. My work has focused on aligning technology strategy with measurable business outcomes, modernizing legacy systems, and accelerating enterprise delivery through automation, Agile, and platform engineering.</p>
+          <p>Semantics as Code extends that enterprise architecture perspective into business meaning: making domains, entities, metrics, relationships, glossary terms, quality expectations, governance metadata, and AI context portable, testable, and deployable.</p>
+        </article>
+
+        <article class="author-card">
+          <h2>Select Achievements</h2>
+          <ul>
+            <li>Led enterprise cloud transformation programs including EDIN 7.0, Bladerunner, and Cloud Data Factory.</li>
+            <li>Directed global functions across Data Engineering, IAM, GIS, DevOps, SRE, and Product Support.</li>
+            <li>Architected scalable data and predictive analytics platforms for energy and enterprise data products.</li>
+            <li>Embedded GenAI, RAG, and Agentic AI patterns into enterprise data ingestion and delivery workflows.</li>
+            <li>Optimized 50+ Snowflake accounts for cost, performance, and governance.</li>
+            <li>Technical reviewer for industry publications including RAG with Python Cookbook.</li>
+          </ul>
+        </article>
+
+        <article class="author-card">
+          <h2>Core Strengths</h2>
+          <p>Cloud Architecture | Data Engineering | Snowflake | Databricks | DevSecOps | CI/CD | Platform Modernization | Product Roadmap | Customer IAM | GIS Architecture | Real-Time Data Delivery | Enterprise AI | Agentic AI | RAG | Semantic Modeling | Global Team Leadership | Stakeholder Management | Mentorship</p>
+        </article>
+
+        <article class="author-card">
+          <h2>Technical Skills</h2>
+          <p>AWS | Azure | GCP | Snowflake | Databricks | Kubernetes | Terraform | Docker | Python | Java | .NET | Scala | SQL | Spark | Airflow | Delta Lake | Fivetran | Jenkins | Azure DevOps | REST APIs | React | Angular | ArcGIS | FME | ML | GenAI | Vector DB | MLOps | Workflow Automation</p>
+        </article>
+
+        <article class="author-card">
+          <h2>Certifications &amp; Memberships</h2>
+          <p>AWS Certified Solutions Architect | PMP | Scrum Master | ITIL</p>
+          <p>Forbes Technology Council Data Engineering Member Leader | IEEE Senior Member | PMI | PPDM DFW Leader | Tech Titans | Sigma Xi Full Member | Esri Community Honored Contributor</p>
+        </article>
+
+        <article class="author-card wide">
+          <h2>Open Source</h2>
+          <div class="project-list">
+            <div>
+              <h3>Semantics as Code</h3>
+              <p>Open, vendor-neutral specification and reference implementation for defining enterprise business semantics as code.</p>
+              <a href={repo}>GitHub: vkondepati/semantics-as-code</a>
+            </div>
+            <div>
+              <h3>V.E.N.K.A.T Framework</h3>
+              <p>Agentic AI framework for trusted enterprise AI systems.</p>
+              <a href="https://github.com/vkondepati/venkat-framework-agentic-ai">GitHub: vkondepati/venkat-framework-agentic-ai</a>
+            </div>
+            <div>
+              <h3>NexaMap</h3>
+              <p>Lightweight GIS and graph-based map viewer for spatial exploration and supply chain intelligence.</p>
+              <a href="https://github.com/vkondepati/gis-map-viewer">GitHub: vkondepati/gis-map-viewer</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .author-hero {
+    color: #fff;
+    background:
+      linear-gradient(90deg, rgba(5, 12, 24, 0.94), rgba(12, 40, 57, 0.86)),
+      #06111f;
+  }
+  .author-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: center;
+    min-height: 68vh;
+    padding: clamp(70px, 9vw, 120px) 0;
+  }
+  .author-photo-wrap {
+    width: min(100%, 360px);
+  }
+  .author-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center 32%;
+    border: 6px solid rgba(255, 255, 255, 0.86);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+  }
+  .author-intro h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(48px, 7vw, 86px);
+  }
+  .hero-text {
+    max-width: 660px;
+    margin: 26px 0 0;
+    color: #dce6f2;
+    font-size: clamp(18px, 2.1vw, 24px);
+  }
+  .author-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+  .bio-lead {
+    max-width: 920px;
+    margin-bottom: 28px;
+    color: var(--muted);
+    font-size: 20px;
+  }
+  .bio-lead a,
+  .author-card a {
+    color: var(--blue);
+    font-weight: 800;
+    text-decoration: none;
+  }
+  .author-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .author-card {
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .author-card.wide {
+    grid-column: 1 / -1;
+  }
+  .author-card h2 {
+    margin: 0 0 16px;
+    font-size: clamp(24px, 3vw, 34px);
+  }
+  .author-card p {
+    color: var(--muted);
+  }
+  .author-card ul {
+    display: grid;
+    gap: 10px;
+    margin: 0;
+    padding-left: 20px;
+    color: var(--muted);
+  }
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .project-list > div {
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--paper);
+  }
+  @media (max-width: 900px) {
+    .author-layout,
+    .author-grid,
+    .project-list {
+      grid-template-columns: 1fr;
+    }
+    .author-photo-wrap {
+      max-width: 320px;
+    }
+  }
+</style>
