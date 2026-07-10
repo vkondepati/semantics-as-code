@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+const concepts = [
+  ["Enterprise semantics", "The shared business meaning behind entities, metrics, relationships, ownership, quality, and context."],
+  ["Semantics versus metadata", "Metadata describes data assets. Semantics defines what business concepts mean and how they should be interpreted."],
+  ["Semantics versus a semantic layer", "A semantic layer may execute queries. Semantics as Code is a portable authoring specification and generation layer, not a runtime."],
+  ["Semantics versus ontology", "Ontologies formalize concepts and relationships. Semantics as Code can generate graph-ready context while staying approachable in YAML."],
+  ["Semantics versus glossary", "A glossary defines terms. Semantics as Code connects glossary terms to entities, metrics, quality, governance, and platform outputs."],
+  ["Entities", "Canonical business objects such as Customer, Product, Order, Supplier, Store, or Region."],
+  ["Metrics", "Governed calculations with formula, grain, dimensions, filters, owner, steward, and quality context."],
+  ["Domains", "Business ownership boundaries for organizing semantic definitions."],
+  ["Relationships", "Typed connections that explain how semantic objects relate."],
+  ["Business keys", "Stable identifiers used to recognize business objects across systems."],
+  ["Quality expectations", "Business-readable requirements attached to semantic objects."],
+  ["Governance metadata", "Ownership, stewardship, lifecycle, classification, PII, tags, and source metadata."],
+  ["AI context", "Plain-language guidance for retrieval systems, copilots, and AI agents."],
+  ["Knowledge graph mappings", "Graph-oriented representations generated from semantic objects and relationships."]
+];
+---
+<BaseLayout title="Concepts" description="Learn the core enterprise semantics concepts behind Semantics as Code." path="/concepts/">
+  <section class="section"><div class="shell">
+    <SectionHeading kicker="Concepts" title="Business meaning, explained for enterprise teams" text="Semantics as Code is intentionally not a runtime. It is an authoring and generation specification for portable meaning." />
+    <div class="grid">{concepts.map(([title, text]) => <article class="card"><h3>{title}</h3><p>{text}</p></article>)}</div>
+  </div></section>
+</BaseLayout>

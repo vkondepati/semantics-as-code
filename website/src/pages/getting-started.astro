@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+---
+<BaseLayout title="Getting Started" description="Install, validate, lint, generate artifacts, diff semantic packages, and run tests with Semantics as Code." path="/getting-started/">
+  <section class="section"><div class="shell prose">
+    <p class="kicker">Tutorial</p>
+    <h1>Getting started</h1>
+    <p class="lead">Clone the repository, install the Python reference CLI, validate the examples, and generate documentation and platform artifacts.</p>
+    <h2>Prerequisites</h2>
+    <ul><li>Python 3.10 or newer</li><li>Git</li><li>Node.js only if you are working on this website</li></ul>
+    <h2>Clone and install</h2>
+    <CodeBlock id="install" code={`git clone https://github.com/vkondepati/semantics-as-code.git\ncd semantics-as-code\npip install -e ".[dev]"`} />
+    <h2>Validate and lint</h2>
+    <CodeBlock id="validate" code={`semantics validate examples/supply-chain\nsemantics lint examples/supply-chain\nsemantics validate examples/retail\nsemantics lint examples/retail`} />
+    <h2>Generate documentation and diagrams</h2>
+    <CodeBlock id="generate-docs" code={`semantics generate examples/supply-chain --target markdown --output dist/docs\nsemantics generate examples/supply-chain --target html --output dist/html\nsemantics generate examples/supply-chain --target mermaid --output dist/diagrams`} />
+    <h2>Generate vendor and AI outputs</h2>
+    <CodeBlock id="generate-vendors" code={`semantics generate examples/supply-chain --target dbt --output dist/dbt\nsemantics generate examples/supply-chain --target openmetadata --output dist/openmetadata\nsemantics generate examples/supply-chain --target ai-context --output dist/ai\nsemantics generate examples/supply-chain --target knowledge-graph --output dist/kg\nsemantics generate examples/supply-chain --target databricks --output dist/databricks\nsemantics generate examples/supply-chain --target snowflake --output dist/snowflake\nsemantics generate examples/supply-chain --target fabric --output dist/fabric\nsemantics generate examples/supply-chain --target bigquery --output dist/bigquery\nsemantics generate examples/supply-chain --target apache-metadata --output dist/apache`} />
+    <h2>Inspect semantic differences</h2>
+    <CodeBlock id="diff" code={`semantics diff --base examples/supply-chain --head examples/retail`} />
+    <h2>Run tests</h2>
+    <CodeBlock id="tests" code={`python -m pytest`} />
+    <h2>Expected structure</h2>
+    <pre class="code"><code>{`examples/supply-chain/\n  semantics.yaml\n  domains/\n  entities/\n  metrics/\n  glossary/\n  relationships/\n  quality/`}</code></pre>
+  </div></section>
+</BaseLayout>

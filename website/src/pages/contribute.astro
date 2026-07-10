@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+import { repo } from "@data/site";
+---
+<BaseLayout title="Contribute" description="How to report issues, propose spec changes, contribute templates, add generators, add adapters, and run tests." path="/contribute/">
+  <section class="section"><div class="shell prose">
+    <p class="kicker">Contribute</p>
+    <h1>Help shape portable business semantics</h1>
+    <p class="lead">Contributions are welcome across schemas, examples, documentation, generators, adapters, and tests.</p>
+    <div class="grid two">
+      {["Report issues", "Propose specification changes", "Contribute templates", "Add generators", "Add vendor adapters", "Improve examples"].map((item) => <article class="card"><h3>{item}</h3><p>Open a GitHub issue or pull request with context, examples, and tests where applicable.</p></article>)}
+    </div>
+    <h2>Run tests</h2>
+    <CodeBlock id="contrib-tests" code={`pip install -e ".[dev]"\npython -m pytest\nsemantics validate examples/supply-chain\nsemantics lint examples/supply-chain`} />
+    <p><a href={`${repo}/blob/main/CONTRIBUTING.md`}>Contribution guide</a> · <a href={`${repo}/blob/main/CODE_OF_CONDUCT.md`}>Code of conduct</a></p>
+  </div></section>
+</BaseLayout>

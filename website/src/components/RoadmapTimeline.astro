@@ -1,0 +1,21 @@
+---
+interface Item { done: boolean; text: string; }
+interface Props { items: Item[]; }
+const { items } = Astro.props;
+---
+<div class="timeline">
+  {items.slice(0, 80).map((item) => (
+    <article class:list={["roadmap-item", item.done ? "done" : "planned"]}>
+      <span>{item.done ? "Complete" : "Planned"}</span>
+      <p>{item.text}</p>
+    </article>
+  ))}
+</div>
+<style>
+  .timeline { display: grid; gap: 12px; }
+  .roadmap-item { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
+  .roadmap-item span { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; }
+  .roadmap-item.done { border-left: 4px solid var(--teal); }
+  .roadmap-item.planned { border-left: 4px solid var(--violet); }
+  .roadmap-item p { margin: 0; }
+</style>

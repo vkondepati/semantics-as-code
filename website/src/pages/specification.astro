@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CodeTabs from "@components/CodeTabs.astro";
+import { repo } from "@data/site";
+import { schemaSummaries } from "@lib/repo";
+const schemas = schemaSummaries();
+---
+<BaseLayout title="Specification" description="Browse supported Semantics as Code object types, required fields, optional fields, schemas, and examples." path="/specification/">
+  <section class="section"><div class="shell">
+    <p class="kicker">Specification</p>
+    <h1>Schema browser</h1>
+    <p class="lead">Supported object types are discovered from the repository's JSON Schema files at build time.</p>
+    <div class="grid">
+      {schemas.map((schema) => (
+        <article class="card">
+          <h3>{schema.title}</h3>
+          <p><strong>Required:</strong> {schema.required.join(", ") || "None"}</p>
+          <p><strong>Optional:</strong> {schema.optional.slice(0, 12).join(", ") || "None"}</p>
+          <p><a href={`${repo}/blob/main/${schema.file}`}>View schema source</a></p>
+        </article>
+      ))}
+    </div>
+    <h2 style="margin-top:56px">Complete YAML templates</h2>
+    <CodeTabs id="schema-examples" tabs={schemas.filter((s) => s.example).map((schema) => ({ label: schema.title, code: schema.example }))} />
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+---
+import { comparison } from "@data/site";
+const headers = ["Capability", "Semantics as Code", "OpenMetadata", "dbt Semantic Layer", "Databricks Metric Views", "Snowflake OSI", "LookML"];
+---
+<div class="table-scroll">
+  <table>
+    <thead><tr>{headers.map((header) => <th>{header}</th>)}</tr></thead>
+    <tbody>
+      {comparison.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}
+    </tbody>
+  </table>
+</div>
+<style>.table-scroll { overflow-x: auto; }</style>

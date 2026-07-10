@@ -1,0 +1,22 @@
+---
+interface Tab { label: string; code: string; language?: string; }
+interface Props { id: string; tabs: Tab[]; }
+const { id, tabs } = Astro.props;
+---
+<div class="tabs">
+  <div id={id} class="tab-list" role="tablist" data-tab-list aria-label="Code examples">
+    {tabs.map((tab, index) => (
+      <button role="tab" aria-selected={index === 0 ? "true" : "false"} aria-controls={`${id}-${index}`} id={`${id}-tab-${index}`}>{tab.label}</button>
+    ))}
+  </div>
+  {tabs.map((tab, index) => (
+    <div id={`${id}-${index}`} role="tabpanel" data-tab-panel={id} aria-labelledby={`${id}-tab-${index}`} hidden={index !== 0}>
+      <pre class="code"><code>{tab.code}</code></pre>
+    </div>
+  ))}
+</div>
+<style>
+  .tab-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .tab-list button { padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); color: var(--ink); font-weight: 800; cursor: pointer; }
+  .tab-list button[aria-selected="true"] { color: #fff; background: var(--blue); border-color: var(--blue); }
+</style>

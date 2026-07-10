@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071527"/>
+      <stop offset="0.55" stop-color="#0f1b3d"/>
+      <stop offset="1" stop-color="#083344"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="930" cy="120" r="220" fill="#2563eb" opacity="0.18"/>
+  <circle cx="1060" cy="500" r="260" fill="#14b8a6" opacity="0.16"/>
+  <g transform="translate(92 96)">
+    <rect width="96" height="96" rx="22" fill="#071527" stroke="#67e8f9" stroke-width="2"/>
+    <path d="M29 27 16 48l13 21M67 27l13 21-13 21" fill="none" stroke="#67e8f9" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="40" cy="38" r="6" fill="#2dd4bf"/>
+    <circle cx="56" cy="49" r="6" fill="#67e8f9"/>
+    <circle cx="40" cy="62" r="6" fill="#a78bfa"/>
+  </g>
+  <text x="92" y="270" fill="#f8fafc" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">Semantics as Code</text>
+  <text x="96" y="345" fill="#67e8f9" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="700">Define once. Govern everywhere.</text>
+  <text x="96" y="420" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="28">An open, vendor-neutral specification and starter kit</text>
+  <text x="96" y="458" fill="#cbd5e1" font-family="Arial, Helvetica, sans-serif" font-size="28">for deployable business meaning.</text>
+</svg>

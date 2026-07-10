@@ -1,0 +1,13 @@
+---
+interface Props { title?: string; nodes?: string[]; }
+const { title = "Semantic lifecycle", nodes = ["Business users", "Semantic YAML", "Git validation", "Generators", "Platforms", "BI, governance, graph, AI"] } = Astro.props;
+---
+<figure class="diagram" aria-label={title}>
+  <figcaption>{title}</figcaption>
+  <div class="diagram-row">
+    {nodes.map((node) => <div class="diagram-node">{node}</div>)}
+  </div>
+</figure>
+<style>
+  figcaption { margin-bottom: 18px; color: var(--cyan); font-weight: 800; }
+</style>

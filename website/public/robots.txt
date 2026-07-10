@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vkondepati.github.io/semantics-as-code/sitemap-index.xml

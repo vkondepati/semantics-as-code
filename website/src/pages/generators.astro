@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+import { generatorTargets } from "@data/site";
+---
+<BaseLayout title="Generators and Adapters" description="Implemented Semantics as Code output targets, generated files, commands, and intended uses." path="/generators/">
+  <section class="section"><div class="shell">
+    <p class="kicker">Outputs</p>
+    <h1>Generators and adapters</h1>
+    <p class="lead">Only implemented targets from the reference CLI are listed here.</p>
+    <div class="grid">
+      {generatorTargets.map((target) => (
+        <article class="card">
+          <h3>{target.target}</h3>
+          <p><strong>Generates:</strong> {target.output}</p>
+          <p>{target.use}</p>
+          <CodeBlock id={`cmd-${target.target.replaceAll("-", "_")}`} code={`semantics generate examples/supply-chain --target ${target.target} --output dist/${target.target}`} />
+        </article>
+      ))}
+    </div>
+  </div></section>
+</BaseLayout>

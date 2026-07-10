@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+import CodeTabs from "@components/CodeTabs.astro";
+import ArchitectureDiagram from "@components/ArchitectureDiagram.astro";
+import ComparisonTable from "@components/ComparisonTable.astro";
+import { commands, generatorTargets, modelCards, repo, version } from "@data/site";
+import { readText } from "@lib/repo";
+import { withBase } from "@lib/paths";
+
+const tabs = [
+  { label: "Entity", code: readText("examples/supply-chain/entities/customer.yaml") },
+  { label: "Metric", code: readText("examples/supply-chain/metrics/revenue.yaml") },
+  { label: "Relationship", code: readText("examples/supply-chain/relationships/customer-orders.yaml") },
+  { label: "Quality", code: readText("examples/supply-chain/quality/revenue-reconciliation.yaml") },
+  { label: "Glossary", code: readText("examples/supply-chain/glossary/recognized-revenue.yaml") }
+];
+---
+<BaseLayout title="Open Enterprise Business Semantics" description="Define once. Govern everywhere. Semantics as Code is an open, vendor-neutral specification and starter kit for deployable business meaning." path="/">
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <p class="kicker">Open semantic specification</p>
+        <h1>Semantics as Code</h1>
+        <p class="tagline">Define once. Govern everywhere.</p>
+        <p class="hero-text">An open, vendor-neutral specification, starter kit, and enterprise blueprint for making business semantics version-controlled, testable, portable, and deployable.</p>
+        <div class="hero-actions">
+          <a class="button primary" href={withBase("/getting-started/")}>Get Started</a>
+          <a class="button secondary" href={withBase("/specification/")}>Explore Specification</a>
+          <a class="button dark" href={repo}>View on GitHub</a>
+        </div>
+        <p class="version">Current reference version: <strong>v{version}</strong></p>
+      </div>
+      <div class="hero-panel" aria-label="Semantic pipeline">
+        {["Business Meaning", "Defined as YAML", "Validated in Git", "Generated for Platforms", "Consumed by BI, Governance, Data, and AI"].map((step) => <div>{step}</div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="band section"><div class="shell grid two">
+    <div><p class="kicker">Problem</p><h2>Everything became code except business meaning.</h2></div>
+    <div class="lead"><p>Infrastructure, pipelines, policies, APIs, and observability have become code-first. Business meaning still lives across spreadsheets, decks, BI models, wikis, catalogs, source documentation, and tribal knowledge.</p><p>That fragmentation creates conflicting definitions, duplicated metrics, semantic drift, lock-in, inconsistent AI answers, and governance friction.</p></div>
+  </div></section>
+
+  <section class="section"><div class="shell">
+    <SectionHeading kicker="Solution" title="Author semantics once, then validate, review, document, and generate." text="Semantics as Code treats business entities, metrics, relationships, ownership, quality, and AI context as portable YAML definitions." />
+    <ArchitectureDiagram title="From YAML definitions to governed platform artifacts" nodes={["YAML Definitions", "Validation and Linting", "Git and CI/CD", "Generators and Adapters", "BI, Data Platforms, Governance, Knowledge Graphs, AI"]} />
+  </div></section>
+
+  <section class="band section"><div class="shell">
+    <SectionHeading kicker="Model" title="What can be modeled" text="The implemented schema set covers the core objects needed for enterprise semantic authoring." />
+    <div class="grid">{modelCards.map(([title, text]) => <article class="card"><h3>{title}</h3><p>{text}</p></article>)}</div>
+  </div></section>
+
+  <section class="section"><div class="shell grid two">
+    <div>
+      <p class="kicker">Starter kit</p>
+      <h2>Start with schemas, templates, examples, validation, and CI/CD.</h2>
+      <p class="lead">Teams can begin with JSON Schemas, YAML templates, reference domains, CLI commands, validation rules, generated documentation, and architecture blueprints.</p>
+    </div>
+    <div class="card">
+      <h3>Implemented outputs</h3>
+      <ul>{generatorTargets.slice(0, 8).map((target) => <li><strong>{target.target}</strong>: {target.output}</li>)}</ul>
+    </div>
+  </div></section>
+
+  <section class="band section"><div class="shell">
+    <SectionHeading kicker="Vendor neutral" title="A neutral source of semantic truth above platforms" text="Semantics as Code does not replace Databricks, Snowflake, Fabric, dbt, OpenMetadata, BigQuery, knowledge graphs, or AI context systems. It gives them a portable source model to consume or generate." />
+    <div class="grid">{["Databricks", "Snowflake", "Microsoft Fabric", "dbt", "OpenMetadata", "BigQuery", "Knowledge Graphs", "AI Context", "Apache Metadata"].map((item) => <article class="card"><h3>{item}</h3><p>Generated artifact or documented adapter target from the reference implementation.</p></article>)}</div>
+  </div></section>
+
+  <section class="section"><div class="shell">
+    <SectionHeading kicker="Quick start" title="Run the reference implementation locally" />
+    <CodeBlock id="quick-start" code={commands.join("\n")} />
+  </div></section>
+
+  <section class="band section"><div class="shell">
+    <SectionHeading kicker="YAML examples" title="Real semantic definitions from the repository" />
+    <CodeTabs id="yaml-tabs" tabs={tabs} />
+  </div></section>
+
+  <section class="section"><div class="shell">
+    <SectionHeading kicker="Architecture" title="Semantic lifecycle for enterprise teams" />
+    <ArchitectureDiagram title="From domain experts to platform artifacts" nodes={["Business Users and Domain Experts", "Semantic YAML Specification", "Git, Pull Requests, Validation, Linting, Diff", "Generators and Adapters", "Databricks, Snowflake, Fabric, dbt, OpenMetadata, BigQuery", "BI, Governance, Knowledge Graph, AI Agents"]} />
+  </div></section>
+
+  <section class="band section"><div class="shell">
+    <SectionHeading kicker="Comparison" title="Positioning among adjacent tools" text="Semantics as Code is not another runtime or catalog. It is an implementation-neutral authoring specification, starter kit, and generation layer." />
+    <ComparisonTable />
+  </div></section>
+
+  <section class="section cta"><div class="shell">
+    <h2>Deploy business meaning as code.</h2>
+    <p class="lead">Explore the specification, clone the starter kit, and contribute portable semantic definitions.</p>
+    <div class="hero-actions"><a class="button primary" href={withBase("/specification/")}>Explore the specification</a><a class="button secondary" href={repo}>Clone on GitHub</a><a class="button secondary" href={withBase("/contribute/")}>Contribute</a></div>
+  </div></section>
+</BaseLayout>
+<style>
+  .hero { min-height: 86vh; display: grid; align-items: center; color: #fff; background: radial-gradient(circle at 75% 20%, rgba(103,232,249,.18), transparent 28%), radial-gradient(circle at 85% 80%, rgba(139,92,246,.2), transparent 30%), linear-gradient(135deg, #071527, #101b3d 58%, #083344); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 0.7fr); gap: clamp(28px, 6vw, 72px); align-items: center; padding: clamp(72px, 10vw, 128px) 0; }
+  .tagline { color: var(--cyan); font-size: clamp(28px, 3vw, 42px); font-weight: 800; margin: 14px 0 0; }
+  .hero-text { max-width: 680px; color: #dce6f2; font-size: clamp(18px, 2vw, 24px); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .version { color: #b9c7d9; }
+  .hero-panel { display: grid; gap: 12px; padding: 22px; border: 1px solid rgba(255,255,255,.18); border-radius: 8px; background: rgba(255,255,255,.08); box-shadow: 0 24px 80px rgba(0,0,0,.24); }
+  .hero-panel div { padding: 16px; border: 1px solid rgba(103,232,249,.22); border-radius: 8px; background: rgba(7,21,39,.72); font-weight: 800; }
+  .cta { text-align: center; }
+  .cta .hero-actions { justify-content: center; }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+</style>

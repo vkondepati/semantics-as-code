@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CodeTabs from "@components/CodeTabs.astro";
+import ArchitectureDiagram from "@components/ArchitectureDiagram.astro";
+import { repo } from "@data/site";
+import { examplePackage } from "@lib/repo";
+const packages = [examplePackage("supply-chain"), examplePackage("retail")];
+---
+<BaseLayout title="Examples" description="Browse actual Semantics as Code example packages from the repository." path="/examples/">
+  <section class="section"><div class="shell">
+    <p class="kicker">Examples</p>
+    <h1>Reference semantic packages</h1>
+    <p class="lead">These examples are derived from the repository's actual YAML files.</p>
+    {packages.map((pkg) => (
+      <section class="bandless">
+        <h2>{pkg.name === "supply-chain" ? "Supply Chain" : "Retail"}</h2>
+        <div class="grid">
+          <article class="card"><h3>Domains</h3><p>{pkg.domains.map((o) => o.data.name).join(", ")}</p></article>
+          <article class="card"><h3>Entities</h3><p>{pkg.entities.map((o) => o.data.name).join(", ")}</p></article>
+          <article class="card"><h3>Metrics</h3><p>{pkg.metrics.map((o) => o.data.name).join(", ")}</p></article>
+          <article class="card"><h3>Relationships</h3><p>{pkg.relationships.length} relationship definitions</p></article>
+          <article class="card"><h3>Quality</h3><p>{pkg.quality.length} quality expectations</p></article>
+          <article class="card"><h3>Source</h3><p><a href={`${repo}/tree/main/examples/${pkg.name}`}>Open source files</a></p></article>
+        </div>
+        <ArchitectureDiagram title={`${pkg.name} semantic package`} nodes={["Domains", "Entities", "Metrics", "Relationships", "Quality", "Generated artifacts"]} />
+        <CodeTabs id={`tabs-${pkg.name}`} tabs={pkg.selectedYaml.map((file) => ({ label: file.file.split("/").pop() || file.file, code: file.text }))} />
+      </section>
+    ))}
+  </div></section>
+</BaseLayout>
+<style>.bandless { margin-top: 56px; } .bandless h2 { margin-bottom: 20px; } .bandless .diagram { margin: 24px 0; }</style>

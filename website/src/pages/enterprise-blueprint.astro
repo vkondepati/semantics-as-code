@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ArchitectureDiagram from "@components/ArchitectureDiagram.astro";
+import CodeBlock from "@components/CodeBlock.astro";
+---
+<BaseLayout title="Enterprise Blueprint" description="Recommended Git-based semantic lifecycle, governance model, and promotion pattern for enterprises." path="/enterprise-blueprint/">
+  <section class="section"><div class="shell prose">
+    <p class="kicker">Enterprise blueprint</p>
+    <h1>Git-based semantic lifecycle</h1>
+    <p class="lead">Treat semantic change like application and infrastructure change: author, review, validate, approve, generate, deploy, and roll back through controlled environments.</p>
+    <ArchitectureDiagram title="Semantic lifecycle" nodes={["Author", "Review", "Approve", "Validate", "Generate", "Deploy", "Govern"]} />
+    <h2>Operating model</h2>
+    <div class="grid two">
+      {["Authoring", "Review", "Approval", "Validation", "Deployment", "Rollback", "Governance ownership", "Platform integration"].map((item) => <article class="card"><h3>{item}</h3><p>Use Git pull requests, owners, stewards, validation checks, generated artifacts, and semantic diff to keep business meaning controlled and portable.</p></article>)}
+    </div>
+    <h2>Recommended enterprise structure</h2>
+    <CodeBlock id="enterprise-structure" code={`semantics/\n  domains/\n  entities/\n  metrics/\n  glossary/\n  relationships/\n  quality/\n  policies/\n  platform-config/`} />
+    <h2>Promotion guidance</h2>
+    <p>Use development branches for authoring, test environments for generated artifact validation, and production releases for approved semantic packages. Pair semantic diff with release notes so downstream consumers understand business meaning changes.</p>
+  </div></section>
+</BaseLayout>

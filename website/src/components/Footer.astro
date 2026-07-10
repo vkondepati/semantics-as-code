@@ -1,0 +1,24 @@
+---
+import { nav, repo } from "@data/site";
+import { withBase } from "@lib/paths";
+---
+<footer class="footer">
+  <div class="shell footer-grid">
+    <div>
+      <strong>Semantics as Code</strong>
+      <p>An open proposal and reference implementation for portable business meaning.</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      {nav.slice(1, 7).map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
+      <a href={repo}>GitHub</a>
+    </nav>
+  </div>
+</footer>
+<style>
+  .footer { padding: 44px 0; color: #dbeafe; background: #071527; }
+  .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+  .footer p { max-width: 520px; color: #a9bdd7; }
+  .footer nav { display: grid; gap: 8px; }
+  .footer a { color: #dbeafe; text-decoration: none; }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>

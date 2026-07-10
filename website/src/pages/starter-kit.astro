@@ -1,0 +1,16 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SectionHeading from "@components/SectionHeading.astro";
+import { repo } from "@data/site";
+const steps = ["Select a business domain", "Identify canonical entities", "Define business keys", "Define relationships", "Define metrics and dimensions", "Add owners and stewards", "Add quality expectations", "Add AI context and synonyms", "Validate through CI/CD", "Generate vendor-specific artifacts"];
+---
+<BaseLayout title="Starter Kit" description="A practical enterprise adoption blueprint for Semantics as Code." path="/starter-kit/">
+  <section class="section"><div class="shell">
+    <SectionHeading kicker="Starter kit" title="Adopt Semantics as Code one domain at a time" text="Start small, prove value in Git and CI/CD, then expand across domains and platforms." />
+    <div class="grid two">{steps.map((step, index) => <article class="card"><p class="kicker">Step {index + 1}</p><h3>{step}</h3><p>Use the repository templates and examples to make this step concrete and reviewable.</p></article>)}</div>
+    <div class="callout" style="margin-top:28px">
+      <p><strong>Source templates:</strong> <a href={`${repo}/tree/main/templates`}>templates/</a></p>
+      <p><strong>Reference examples:</strong> <a href={`${repo}/tree/main/examples`}>examples/</a></p>
+    </div>
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+interface Props { kicker?: string; title: string; text?: string; }
+const { kicker, title, text } = Astro.props;
+---
+<div class="section-heading">
+  {kicker && <p class="kicker">{kicker}</p>}
+  <h2>{title}</h2>
+  {text && <p class="lead">{text}</p>}
+</div>
+<style>
+  .section-heading { max-width: 860px; margin-bottom: 34px; }
+</style>

@@ -1,0 +1,12 @@
+---
+interface Props { code: string; id: string; language?: string; }
+const { code, id, language = "bash" } = Astro.props;
+---
+<div class="code-wrap">
+  <button type="button" data-copy={`#${id}`}>Copy</button>
+  <pre class="code"><code id={id} class={`language-${language}`}>{code}</code></pre>
+</div>
+<style>
+  .code-wrap { position: relative; }
+  .code-wrap button { position: absolute; top: 10px; right: 10px; z-index: 1; padding: 6px 10px; border: 1px solid #274568; border-radius: 6px; color: #dbeafe; background: #0e223c; cursor: pointer; }
+</style>

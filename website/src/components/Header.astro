@@ -1,0 +1,57 @@
+---
+import { nav, repo } from "@data/site";
+import { basePath, withBase } from "@lib/paths";
+const current = Astro.url.pathname.replace("/semantics-as-code", "") || "/";
+---
+<header class="site-header">
+  <a class="brand" href={basePath} aria-label="Semantics as Code home">
+    <img src={withBase("assets/logo.svg")} alt="" width="34" height="34" />
+    <span>Semantics as Code</span>
+  </a>
+  <button class="mobile-toggle" type="button" data-mobile-toggle aria-label="Toggle navigation">Menu</button>
+  <nav class="nav" data-nav aria-label="Primary navigation">
+    {nav.map((item) => (
+      <a href={withBase(item.href)} aria-current={current === item.href ? "page" : undefined}>{item.label}</a>
+    ))}
+    <a class="nav-cta" href={withBase("/getting-started/")}>Get Started</a>
+    <a class="nav-cta ghost" href={repo}>GitHub</a>
+    <button type="button" class="theme" data-theme-toggle aria-label="Toggle light and dark theme">Theme</button>
+  </nav>
+</header>
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px clamp(18px, 4vw, 56px);
+    background: color-mix(in srgb, var(--white) 92%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(16px);
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; min-width: max-content; font-weight: 800; text-decoration: none; }
+  .brand img { border-radius: 8px; }
+  .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px 16px; color: var(--muted); font-size: 14px; font-weight: 700; }
+  .nav a { text-decoration: none; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--ink); }
+  .nav-cta, .theme {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .nav-cta:not(.ghost) { color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--teal), var(--blue)); }
+  .mobile-toggle { display: none; }
+  @media (max-width: 980px) {
+    .mobile-toggle { display: inline-flex; padding: 8px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); color: var(--ink); font-weight: 800; }
+    .nav { display: none; position: absolute; top: 64px; left: 20px; right: 20px; padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+    .nav[data-open] { display: grid; justify-content: stretch; }
+  }
+</style>

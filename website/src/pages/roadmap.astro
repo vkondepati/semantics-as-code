@@ -1,0 +1,14 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import RoadmapTimeline from "@components/RoadmapTimeline.astro";
+import { roadmap } from "@lib/repo";
+const items = roadmap();
+---
+<BaseLayout title="Roadmap" description="Visual roadmap based on the repository task status." path="/roadmap/">
+  <section class="section"><div class="shell">
+    <p class="kicker">Roadmap</p>
+    <h1>Actual repository roadmap</h1>
+    <p class="lead">Completed and planned items are read from `docs/TASKS.md` at build time.</p>
+    <RoadmapTimeline items={items} />
+  </div></section>
+</BaseLayout>

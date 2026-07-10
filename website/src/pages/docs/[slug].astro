@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { docs } from "@lib/repo";
+import { withBase } from "@lib/paths";
+
+export function getStaticPaths() {
+  return docs().map((page) => ({ params: { slug: page.slug }, props: { page } }));
+}
+
+const { page } = Astro.props;
+const pages = docs();
+const index = pages.findIndex((candidate) => candidate.slug === page.slug);
+const previous = pages[index - 1];
+const next = pages[index + 1];
+---
+<BaseLayout title={page.title} description={`Documentation page: ${page.title}`} path={`/docs/${page.slug}/`}>
+  <section class="section"><div class="shell doc-layout">
+    <aside class="doc-sidebar">
+      <a href={withBase("/docs/")}>Documentation hub</a>
+      {pages.map((item) => <a href={withBase(`/docs/${item.slug}/`)} aria-current={item.slug === page.slug ? "page" : undefined}>{item.title}</a>)}
+    </aside>
+    <article class="prose">
+      <p class="kicker">{page.file}</p>
+      <div set:html={page.html}></div>
+      <nav class="doc-pager" aria-label="Documentation pagination">
+        {previous ? <a href={withBase(`/docs/${previous.slug}/`)}>Previous: {previous.title}</a> : <span></span>}
+        {next ? <a href={withBase(`/docs/${next.slug}/`)}>Next: {next.title}</a> : <span></span>}
+      </nav>
+    </article>
+  </div></section>
+</BaseLayout>
+<style>
+  .doc-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 38px; align-items: start; }
+  .doc-sidebar { position: sticky; top: 90px; display: grid; gap: 8px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--white); }
+  .doc-sidebar a { text-decoration: none; color: var(--muted); font-weight: 700; }
+  .doc-sidebar a[aria-current="page"] { color: var(--ink); }
+  .doc-pager { display: flex; justify-content: space-between; gap: 18px; margin-top: 42px; padding-top: 20px; border-top: 1px solid var(--line); }
+  @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; } .doc-sidebar { position: static; } }
+</style>

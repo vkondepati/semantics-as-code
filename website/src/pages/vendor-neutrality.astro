@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import ArchitectureDiagram from "@components/ArchitectureDiagram.astro";
+---
+<BaseLayout title="Vendor Neutrality" description="Why portable business semantics should not be trapped in a single runtime, BI tool, or catalog." path="/vendor-neutrality/">
+  <section class="section"><div class="shell">
+    <p class="kicker">Vendor neutrality</p>
+    <h1>One semantic source, many platform artifacts</h1>
+    <p class="lead">Semantics as Code complements platforms by giving them a portable authoring specification and generation layer.</p>
+    <div class="grid two">
+      <article class="card"><h3>Why it matters</h3><p>Business meaning should survive tooling changes, mergers, migrations, and multi-cloud architectures.</p></article>
+      <article class="card"><h3>Not trapped in BI</h3><p>Metrics and entities belong to the enterprise, not only to a dashboard or runtime engine.</p></article>
+      <article class="card"><h3>Adapter architecture</h3><p>Vendors can implement adapters that consume the common semantic registry and generate platform-specific artifacts.</p></article>
+      <article class="card"><h3>Complementary posture</h3><p>The project complements semantic layers, catalogs, warehouses, BI tools, graph systems, and AI context pipelines.</p></article>
+    </div>
+    <ArchitectureDiagram title="Vendor adapter architecture" nodes={["Semantic YAML", "Registry", "Adapter API", "Vendor artifact", "Platform consumption"]} />
+  </div></section>
+</BaseLayout>
