@@ -65,6 +65,12 @@ semantics generate <path> --target html --output dist/html
 semantics generate <path> --target dbt --output dist/dbt
 semantics generate <path> --target openmetadata --output dist/openmetadata
 semantics generate <path> --target ai-context --output dist/ai
+semantics generate <path> --target knowledge-graph --output dist/kg
+semantics generate <path> --target databricks --output dist/databricks
+semantics generate <path> --target snowflake --output dist/snowflake
+semantics generate <path> --target fabric --output dist/fabric
+semantics generate <path> --target bigquery --output dist/bigquery
+semantics generate <path> --target apache-metadata --output dist/apache
 semantics diff --base examples/supply-chain --head examples/retail
 ```
 
@@ -90,8 +96,8 @@ semantics test <path>
 
 - Version 0.1: specification, starter kit, schemas, validation, linting, Markdown docs, CI.
 - Version 0.2: Mermaid, HTML, dbt, OpenMetadata, AI context generators, manifests, configurable linting, semantic diff, expanded examples.
-- Version 0.5: knowledge graph generation, AI context generation, OpenMetadata and dbt integrations.
-- Version 1.0: stable vendor adapters and compatibility test suite.
+- Version 0.5: knowledge graph generation, package dependencies, formula validation, integration tests, VS Code prototype.
+- Version 1.0: stable versioning policy, vendor adapter API, built-in adapters, compatibility test suite, formal specification.
 
 ## License
 

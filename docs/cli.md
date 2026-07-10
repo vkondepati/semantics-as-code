@@ -38,6 +38,13 @@ Supported targets:
 - `dbt`
 - `openmetadata`
 - `ai-context`
+- `knowledge-graph`
+- `databricks`
+- `snowflake`
+- `fabric`
+- `bigquery`
+- `openmetadata-adapter`
+- `apache-metadata`
 
 ## Diff
 

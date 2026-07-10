@@ -1,0 +1,16 @@
+id: formula-entity
+kind: entity
+name: Formula Entity
+display_name: Formula Entity
+description: Entity used for invalid formula tests.
+business_key: formula_entity_id
+owner: Test Owner
+domain: Formula Domain
+version: 1.0.0
+status: active
+classification: Internal
+pii: false
+quality:
+  - formula_entity_id completeness > 99%
+ai_context: Represents a formula validation entity.
+extensions: {}

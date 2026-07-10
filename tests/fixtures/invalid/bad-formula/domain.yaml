@@ -1,0 +1,9 @@
+id: formula-domain
+kind: domain
+name: Formula Domain
+display_name: Formula Domain
+description: Domain used for invalid formula tests.
+owner: Test Owner
+version: 1.0.0
+status: active
+extensions: {}

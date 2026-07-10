@@ -9,7 +9,7 @@ from semantics.core.registry import (
     Registry,
     SemanticObject,
     SUPPORTED_KINDS,
-    discover_yaml_files,
+    discover_package_files,
     load_yaml_file,
 )
 
@@ -19,7 +19,7 @@ SCHEMA_DIR = Path(__file__).resolve().parents[3] / "schemas"
 def validate_path(path: Path) -> tuple[List[Diagnostic], Registry]:
     diagnostics: List[Diagnostic] = []
     registry = Registry()
-    files = discover_yaml_files(path)
+    files = discover_package_files(path)
 
     if not files:
         diagnostics.append(
@@ -122,6 +122,9 @@ def validate_references(registry: Registry) -> List[Diagnostic]:
                     diagnostics.append(_missing_ref(obj, "SAC-REF-003", "quality expectation", reference))
 
         if obj.kind == "metric":
+            formula = obj.data.get("formula")
+            if formula:
+                diagnostics.extend(validate_metric_formula(obj, str(formula)))
             grain = obj.data.get("grain")
             if grain and not registry.resolve(grain):
                 diagnostics.append(_missing_ref(obj, "SAC-REF-004", "metric grain", grain))
@@ -144,6 +147,55 @@ def validate_references(registry: Registry) -> List[Diagnostic]:
                 diagnostics.append(_missing_ref(obj, "SAC-REF-008", "quality target", target))
 
     return diagnostics
+
+
+def validate_metric_formula(obj: SemanticObject, formula: str) -> List[Diagnostic]:
+    diagnostics: List[Diagnostic] = []
+    if any(token in formula for token in (";", "--", "/*", "*/")):
+        diagnostics.append(
+            Diagnostic(
+                severity="error",
+                rule_id="SAC-FORMULA-001",
+                path=obj.path,
+                object_id=obj.id,
+                message="Metric formula contains unsupported SQL control or comment tokens.",
+                suggestion="Use a single expression such as SUM(amount) or SUM(a) / COUNT(b).",
+            )
+        )
+    if not _balanced_parentheses(formula):
+        diagnostics.append(
+            Diagnostic(
+                severity="error",
+                rule_id="SAC-FORMULA-002",
+                path=obj.path,
+                object_id=obj.id,
+                message="Metric formula has unbalanced parentheses.",
+            )
+        )
+    allowed = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_ .,+-*/()'\"=<>&|")
+    if any(char not in allowed for char in formula):
+        diagnostics.append(
+            Diagnostic(
+                severity="error",
+                rule_id="SAC-FORMULA-003",
+                path=obj.path,
+                object_id=obj.id,
+                message="Metric formula contains unsupported characters.",
+            )
+        )
+    return diagnostics
+
+
+def _balanced_parentheses(value: str) -> bool:
+    depth = 0
+    for char in value:
+        if char == "(":
+            depth += 1
+        elif char == ")":
+            depth -= 1
+        if depth < 0:
+            return False
+    return depth == 0
 
 
 def _resolve_kind(registry: Registry, reference: Any, kind: str):

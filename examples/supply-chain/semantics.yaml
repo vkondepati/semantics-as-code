@@ -28,4 +28,5 @@ generators:
     enabled: true
   ai-context:
     enabled: true
+dependencies: []
 extensions: {}

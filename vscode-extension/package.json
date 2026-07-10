@@ -1,0 +1,45 @@
+{
+  "name": "semantics-as-code",
+  "displayName": "Semantics as Code",
+  "description": "Syntax support and schema validation for Semantics as Code YAML files.",
+  "version": "0.1.0",
+  "publisher": "semantics-as-code",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Data Science"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "semantics-yaml",
+        "aliases": [
+          "Semantics as Code YAML",
+          "semantics-yaml"
+        ],
+        "extensions": [
+          ".semantic.yaml",
+          ".semantic.yml"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "yaml",
+        "path": "./snippets/semantics.code-snippets"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": [
+          "/semantics.yaml",
+          "/semantics.yml"
+        ],
+        "url": "../schemas/semantic-package.schema.json"
+      }
+    ]
+  }
+}

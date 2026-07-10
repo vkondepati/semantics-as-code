@@ -1,5 +1,19 @@
 # Release Notes
 
+## v1.0.0 - Stable Specification and Vendor Adapter Surface
+
+### Added
+
+- Knowledge graph generator with JSON-LD and Turtle outputs.
+- Local semantic package dependency support through `semantics.yaml`.
+- Richer metric formula validation for unsafe tokens, unsupported characters, and unbalanced parentheses.
+- VS Code extension prototype with snippets and language configuration.
+- Formal specification and specification versioning policy.
+- Vendor adapter API.
+- Built-in adapters for Databricks, Snowflake, Microsoft Fabric, BigQuery, OpenMetadata, and Apache Iceberg/Polaris/Gravitino mappings.
+- Compatibility test suite for stable generator and adapter outputs.
+- dbt and OpenMetadata integration tests.
+
 ## v0.2.0 - Generators, Manifests, Configurable Linting, and Diff
 
 ### Added

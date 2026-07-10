@@ -16,4 +16,5 @@ lint:
 generators:
   markdown:
     enabled: true
+dependencies: []
 extensions: {}

@@ -40,6 +40,15 @@ extensions: {}
 
 The manifest can configure lint severities with `off`, `warning`, or `error`.
 
+It can also declare local package dependencies:
+
+```yaml
+dependencies:
+  - name: shared-domain
+    path: ../shared-domain
+    version: 1.0.0
+```
+
 ## Extension Model
 
 Use `extensions` for fields that are not part of the portable core.

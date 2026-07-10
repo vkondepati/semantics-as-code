@@ -52,6 +52,24 @@ jobs:
       - name: Generate AI context
         run: semantics generate examples/supply-chain --target ai-context --output dist/ai
 
+      - name: Generate knowledge graph
+        run: semantics generate examples/supply-chain --target knowledge-graph --output dist/kg
+
+      - name: Generate Databricks adapter artifact
+        run: semantics generate examples/supply-chain --target databricks --output dist/databricks
+
+      - name: Generate Snowflake adapter artifact
+        run: semantics generate examples/supply-chain --target snowflake --output dist/snowflake
+
+      - name: Generate Fabric adapter artifact
+        run: semantics generate examples/supply-chain --target fabric --output dist/fabric
+
+      - name: Generate BigQuery adapter artifact
+        run: semantics generate examples/supply-chain --target bigquery --output dist/bigquery
+
+      - name: Generate Apache metadata mappings
+        run: semantics generate examples/supply-chain --target apache-metadata --output dist/apache
+
       - name: Upload generated docs
         uses: actions/upload-artifact@v4
         with:

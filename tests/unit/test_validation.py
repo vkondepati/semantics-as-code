@@ -20,3 +20,10 @@ def test_broken_reference_fails_semantic_validation():
     diagnostics, _registry = validate_path(Path("tests/fixtures/invalid/broken-reference"))
 
     assert any(d.rule_id == "SAC-REF-002" for d in diagnostics)
+
+
+def test_invalid_metric_formula_fails_validation():
+    diagnostics, _registry = validate_path(Path("tests/fixtures/invalid/bad-formula"))
+
+    assert any(d.rule_id == "SAC-FORMULA-001" for d in diagnostics)
+    assert any(d.rule_id == "SAC-FORMULA-002" for d in diagnostics)

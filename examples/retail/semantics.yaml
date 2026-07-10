@@ -15,4 +15,5 @@ lint:
     SAC-LINT-003: warning
     SAC-LINT-004: warning
     SAC-LINT-005: warning
+dependencies: []
 extensions: {}

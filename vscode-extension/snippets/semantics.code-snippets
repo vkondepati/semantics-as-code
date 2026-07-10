@@ -1,0 +1,48 @@
+{
+  "Semantics Entity": {
+    "prefix": "sac-entity",
+    "body": [
+      "id: ${1:entity-id}",
+      "kind: entity",
+      "name: ${2:Entity Name}",
+      "display_name: ${2:Entity Name}",
+      "description: ${3:Describe the business entity.}",
+      "business_key: ${4:entity_id}",
+      "owner: ${5:Business Owner}",
+      "steward: Data Governance",
+      "domain: ${6:Domain}",
+      "version: 1.0.0",
+      "status: active",
+      "classification: Internal",
+      "pii: false",
+      "relationships: []",
+      "quality: []",
+      "ai_context: ${7:Explain how AI should interpret this entity.}",
+      "extensions: {}"
+    ],
+    "description": "Create a Semantics as Code entity."
+  },
+  "Semantics Metric": {
+    "prefix": "sac-metric",
+    "body": [
+      "id: ${1:metric-id}",
+      "kind: metric",
+      "name: ${2:Metric Name}",
+      "display_name: ${2:Metric Name}",
+      "description: ${3:Describe the business metric.}",
+      "formula: ${4:SUM(amount)}",
+      "grain: ${5:Entity Name}",
+      "owner: ${6:Business Owner}",
+      "steward: Data Governance",
+      "domain: ${7:Domain}",
+      "version: 1.0.0",
+      "status: active",
+      "classification: Internal",
+      "dimensions: []",
+      "quality: []",
+      "ai_context: ${8:Explain how AI should interpret this metric.}",
+      "extensions: {}"
+    ],
+    "description": "Create a Semantics as Code metric."
+  }
+}

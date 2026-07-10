@@ -1,0 +1,18 @@
+id: bad-formula
+kind: metric
+name: Bad Formula
+display_name: Bad Formula
+description: Metric with invalid formula syntax.
+formula: SUM(amount;
+grain: Formula Entity
+owner: Test Owner
+domain: Formula Domain
+version: 1.0.0
+status: active
+classification: Internal
+dimensions:
+  - Formula Entity
+quality:
+  - reconciles with test expectations.
+ai_context: Represents a bad formula test metric.
+extensions: {}

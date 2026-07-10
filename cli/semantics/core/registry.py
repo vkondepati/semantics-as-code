@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional, Set
 
 import yaml
 
@@ -107,6 +107,49 @@ def discover_yaml_files(path: Path) -> List[Path]:
             if not any(part in ignored_parts for part in candidate.parts):
                 files.append(candidate)
     return sorted(files)
+
+
+def discover_package_files(path: Path) -> List[Path]:
+    root = path.parent if path.is_file() else path
+    files = discover_yaml_files(path)
+    seen = {file.resolve() for file in files}
+    for dependency_path in _manifest_dependencies(root):
+        for file in discover_yaml_files(dependency_path):
+            resolved = file.resolve()
+            if resolved not in seen:
+                files.append(file)
+                seen.add(resolved)
+    return sorted(files)
+
+
+def _manifest_dependencies(root: Path, visited: Optional[Set[Path]] = None) -> List[Path]:
+    visited = visited or set()
+    root = root.resolve()
+    if root in visited:
+        return []
+    visited.add(root)
+
+    manifest = None
+    for name in ("semantics.yaml", "semantics.yml"):
+        candidate = root / name
+        if candidate.exists():
+            manifest = candidate
+            break
+    if not manifest:
+        return []
+
+    data, error = load_yaml_file(manifest)
+    if error or not data:
+        return []
+
+    paths: List[Path] = []
+    for dependency in data.get("dependencies", []):
+        if not isinstance(dependency, dict) or not dependency.get("path"):
+            continue
+        dependency_path = (root / str(dependency["path"])).resolve()
+        paths.append(dependency_path)
+        paths.extend(_manifest_dependencies(dependency_path, visited))
+    return paths
 
 
 def load_yaml_file(path: Path) -> tuple[Optional[Dict[str, Any]], Optional[Diagnostic]]:

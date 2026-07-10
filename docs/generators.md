@@ -38,8 +38,18 @@ Creates:
 - `ai-context.json`
 - `ai-context.md`
 
+### Knowledge Graph
+
+Creates:
+
+- `knowledge-graph.jsonld`
+- `knowledge-graph.ttl`
+
+### Vendor Adapters
+
+The adapter targets are documented in [adapters.md](adapters.md).
+
 ## Planned Generators
 
 - Power BI semantic model scaffolding.
-- Knowledge graph triples.
 - OpenAPI extensions.

@@ -316,25 +316,25 @@ Acceptance checks:
 
 ## 6. Version 0.5 Candidate Tasks
 
-- [ ] Add knowledge graph generation.
-- [ ] Add OpenMetadata integration tests.
-- [ ] Add dbt integration tests.
-- [ ] Add package dependency support.
-- [ ] Add richer metric formula validation.
-- [ ] Add VS Code extension prototype.
+- [x] Add knowledge graph generation.
+- [x] Add OpenMetadata integration tests.
+- [x] Add dbt integration tests.
+- [x] Add package dependency support.
+- [x] Add richer metric formula validation.
+- [x] Add VS Code extension prototype.
 
 ## 7. Version 1.0 Candidate Tasks
 
-- [ ] Stabilize specification versioning policy.
-- [ ] Add compatibility test suite.
-- [ ] Add vendor adapter API.
-- [ ] Add Databricks adapter.
-- [ ] Add Snowflake adapter.
-- [ ] Add Fabric adapter.
-- [ ] Add BigQuery adapter.
-- [ ] Add OpenMetadata adapter.
-- [ ] Add Apache Iceberg, Polaris, and Gravitino metadata mappings.
-- [ ] Publish formal specification documentation.
+- [x] Stabilize specification versioning policy.
+- [x] Add compatibility test suite.
+- [x] Add vendor adapter API.
+- [x] Add Databricks adapter.
+- [x] Add Snowflake adapter.
+- [x] Add Fabric adapter.
+- [x] Add BigQuery adapter.
+- [x] Add OpenMetadata adapter.
+- [x] Add Apache Iceberg, Polaris, and Gravitino metadata mappings.
+- [x] Publish formal specification documentation.
 
 ## 8. Recommended First Sprint
 
