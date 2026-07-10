@@ -1,0 +1,35 @@
+roles:
+  business_owner:
+    responsibilities:
+      - Approve business meaning and usage.
+      - Approve breaking semantic changes.
+      - Confirm authoritative business source.
+
+  data_steward:
+    responsibilities:
+      - Maintain definitions, glossary terms, and quality rules.
+      - Coordinate periodic reviews.
+      - Resolve definition conflicts.
+
+  semantic_architect:
+    responsibilities:
+      - Enforce modeling and naming standards.
+      - Review grain, relationships, and canonical mappings.
+      - Assess cross-domain impact.
+
+  data_engineer:
+    responsibilities:
+      - Maintain physical source mappings.
+      - Validate data types and source availability.
+      - Support reconciliation and deployment tests.
+
+  platform_engineer:
+    responsibilities:
+      - Generate and deploy platform artifacts.
+      - Maintain environment configuration and deployment identities.
+      - Detect and remediate drift.
+
+  security_privacy:
+    responsibilities:
+      - Review classification, PII, retention, and approved use.
+      - Approve restricted semantic objects and AI usage policies.
