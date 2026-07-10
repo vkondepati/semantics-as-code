@@ -1,0 +1,41 @@
+statuses:
+  - draft
+  - proposed
+  - approved
+  - active
+  - deprecated
+  - retired
+
+versioning:
+  strategy: semantic-versioning
+  breaking_changes:
+    - metric formula changes
+    - grain changes
+    - business key changes
+    - entity renames or removals
+    - dimension removals
+    - relationship cardinality changes
+    - authoritative source changes
+
+review_policy:
+  default_frequency: quarterly
+  overdue_severity: warning
+
+promotion:
+  sequence:
+    - dev
+    - test
+    - prod
+  production_requires:
+    - successful validation
+    - successful linting
+    - business approval
+    - reconciliation pass
+    - security and privacy approval when applicable
+    - release tag
+    - rollback plan
+
+deprecation:
+  replacement_required: true
+  retirement_date_required: true
+  migration_guidance_required: true
