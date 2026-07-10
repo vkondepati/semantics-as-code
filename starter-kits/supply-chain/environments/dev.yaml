@@ -1,0 +1,14 @@
+environment: dev
+platform: databricks
+
+catalog_mapping:
+  supply_chain: dev_supply_chain
+
+deployment:
+  approval_required: false
+  allow_breaking_changes: true
+  drift_detection: warning
+
+observability:
+  enabled: true
+  reconciliation_frequency: daily
