@@ -9,6 +9,9 @@ venv/
 # Build and generated output
 build/
 dist/
+website/dist/
+website/.astro/
+website/node_modules/
 
 # Editor and OS files
 .DS_Store

@@ -33,6 +33,26 @@ semantics generate examples/supply-chain --target mermaid --output dist/diagrams
 semantics generate examples/supply-chain --target html --output dist/html
 ```
 
+## Website
+
+The public documentation website lives under `website/` and is configured for GitHub Pages at:
+
+```text
+https://vkondepati.github.io/semantics-as-code/
+```
+
+Local development:
+
+```bash
+cd website
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+To enable GitHub Pages, open repository **Settings > Pages**, set **Source** to **GitHub Actions**, then push to `main`. The `.github/workflows/deploy-website.yml` workflow builds and deploys the Astro site.
+
 ## Repository Structure
 
 ```text
