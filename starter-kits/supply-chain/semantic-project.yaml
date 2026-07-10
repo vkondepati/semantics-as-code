@@ -1,0 +1,29 @@
+name: supply-chain-semantics
+version: 0.1.0
+description: Enterprise starter semantic model for supply-chain analytics and AI.
+owner: Supply Chain Data Office
+default_domain: Supply Chain
+
+object_paths:
+  domains: domains/
+  entities: entities/
+  metrics: metrics/
+  glossary: glossary/
+  relationships: relationships/
+  quality: quality/
+
+mappings:
+  canonical: mappings/canonical.yaml
+  platforms:
+    databricks: mappings/databricks.yaml
+    snowflake: mappings/snowflake.yaml
+
+environments:
+  dev: environments/dev.yaml
+  test: environments/test.yaml
+  prod: environments/prod.yaml
+
+governance:
+  owners: governance/owners.yaml
+  lifecycle: governance/lifecycle.yaml
+  security_privacy: governance/security-privacy.yaml
