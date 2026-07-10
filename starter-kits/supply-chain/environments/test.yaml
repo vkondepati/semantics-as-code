@@ -1,0 +1,17 @@
+environment: test
+platform: databricks
+
+catalog_mapping:
+  supply_chain: test_supply_chain
+
+deployment:
+  approval_required: true
+  allow_breaking_changes: false
+  required_reviewers:
+    - Data Steward
+    - Semantic Architect
+  drift_detection: error
+
+observability:
+  enabled: true
+  reconciliation_frequency: daily
