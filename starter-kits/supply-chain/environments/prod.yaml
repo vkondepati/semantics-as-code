@@ -1,0 +1,21 @@
+environment: prod
+platform: databricks
+
+catalog_mapping:
+  supply_chain: prod_supply_chain
+
+deployment:
+  approval_required: true
+  allow_breaking_changes: false
+  required_reviewers:
+    - Business Owner
+    - Data Governance
+    - Platform Engineering
+    - Security or Privacy when applicable
+  drift_detection: error
+  rollback_required: true
+
+observability:
+  enabled: true
+  reconciliation_frequency: daily
+  alert_on_overdue_review: true

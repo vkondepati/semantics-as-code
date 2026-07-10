@@ -1,0 +1,26 @@
+platform: databricks
+adapter_version: 1.0.0
+
+source:
+  catalog: supply_chain
+  schema: gold
+  table: order_history
+
+entity: Order
+
+columns:
+  Order ID: order_id
+  Net Sales: net_sales
+  Order Status: order_status
+  Order Date: order_date
+  Region: region
+  Customer ID: customer_id
+  Product ID: product_id
+
+targets:
+  semantic_schema: semantic
+  metric_view: revenue_metrics
+
+notes:
+  - Logical catalog names are resolved by the selected environment file.
+  - Generated artifacts should be deployed through CI/CD rather than edited manually.

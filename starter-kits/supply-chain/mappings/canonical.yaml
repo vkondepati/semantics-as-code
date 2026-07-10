@@ -1,0 +1,72 @@
+model: Supply Chain Canonical Model
+version: 1.0.0
+
+entities:
+  Order:
+    business_key: Order ID
+    attributes:
+      Order ID:
+        type: string
+      Net Sales:
+        type: decimal
+      Order Status:
+        type: string
+      Order Date:
+        type: date
+      Region:
+        type: string
+    relationships:
+      Customer:
+        type: many_to_one
+      Product:
+        type: many_to_many
+      Shipment:
+        type: one_to_many
+
+  Customer:
+    business_key: Customer ID
+    attributes:
+      Customer ID:
+        type: string
+      Customer Name:
+        type: string
+
+  Product:
+    business_key: Product ID
+    attributes:
+      Product ID:
+        type: string
+      Product Name:
+        type: string
+      Category:
+        type: string
+
+  Warehouse:
+    business_key: Warehouse ID
+    attributes:
+      Warehouse ID:
+        type: string
+      Warehouse Name:
+        type: string
+      Region:
+        type: string
+
+  Inventory:
+    business_key: Inventory ID
+    attributes:
+      Inventory ID:
+        type: string
+      Quantity On Hand:
+        type: integer
+      Inventory Status:
+        type: string
+
+  Shipment:
+    business_key: Shipment ID
+    attributes:
+      Shipment ID:
+        type: string
+      Shipment Status:
+        type: string
+      Ship Date:
+        type: date

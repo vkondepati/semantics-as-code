@@ -1,0 +1,26 @@
+platform: snowflake
+adapter_version: 1.0.0
+
+source:
+  database: SUPPLY_CHAIN
+  schema: GOLD
+  table: ORDER_HISTORY
+
+entity: Order
+
+columns:
+  Order ID: ORDER_ID
+  Net Sales: NET_REVENUE
+  Order Status: STATUS
+  Order Date: ORDER_DT
+  Region: REGION_NAME
+  Customer ID: CUSTOMER_ID
+  Product ID: PRODUCT_ID
+
+targets:
+  semantic_schema: SEMANTIC
+  semantic_object: REVENUE_METRICS
+
+notes:
+  - Logical database names are resolved by the selected environment file.
+  - Generated artifacts should be deployed through CI/CD rather than edited manually.

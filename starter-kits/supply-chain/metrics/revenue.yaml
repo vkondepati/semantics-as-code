@@ -1,0 +1,47 @@
+metric: Revenue
+display_name: Revenue
+description: Recognized net revenue generated from completed customer orders.
+domain: Finance
+owner: Finance
+steward: Finance Data Office
+status: active
+version: 1.0.0
+
+business:
+  purpose: Executive, statutory, and operational revenue reporting.
+  business_formula: Sum of Net Sales for completed orders.
+
+calculation:
+  formula: SUM(Net Sales)
+  grain: Order
+  dimensions:
+    - Customer
+    - Product
+    - Region
+    - Order Date
+  filters:
+    - Order Status = Completed
+
+example:
+  inputs:
+    - order_id: O1001
+      net_sales: 100
+    - order_id: O1002
+      net_sales: 250
+  expected_result: 350
+
+validation:
+  authoritative_source: Finance General Ledger
+  tolerance_percent: 0.5
+  frequency: daily
+
+review:
+  frequency: quarterly
+  last_reviewed: 2026-07-01
+  next_review_due: 2026-10-01
+
+security:
+  classification: Internal
+  contains_pii: false
+
+ai_context: Revenue means recognized net sales from completed customer orders unless another approved definition is explicitly requested.
