@@ -1,0 +1,13 @@
+id: retail-customer-transactions
+kind: relationship
+name: Retail Customer Transactions
+display_name: Retail Customer Transactions
+description: A retail customer can have many completed retail transactions.
+from: Retail Customer
+to: Retail Transaction
+relationship_type: one_to_many
+owner: Retail Operations
+domain: Commerce
+version: 0.2.0
+status: active
+extensions: {}

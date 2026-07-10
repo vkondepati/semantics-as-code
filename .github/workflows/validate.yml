@@ -28,11 +28,29 @@ jobs:
       - name: Validate example package
         run: semantics validate examples/supply-chain
 
+      - name: Validate retail example package
+        run: semantics validate examples/retail
+
       - name: Lint example package
         run: semantics lint examples/supply-chain
 
       - name: Generate Markdown documentation
         run: semantics generate examples/supply-chain --target markdown --output dist/docs
+
+      - name: Generate Mermaid diagram
+        run: semantics generate examples/supply-chain --target mermaid --output dist/diagrams
+
+      - name: Generate HTML documentation
+        run: semantics generate examples/supply-chain --target html --output dist/html
+
+      - name: Generate dbt artifacts
+        run: semantics generate examples/supply-chain --target dbt --output dist/dbt
+
+      - name: Generate OpenMetadata artifacts
+        run: semantics generate examples/supply-chain --target openmetadata --output dist/openmetadata
+
+      - name: Generate AI context
+        run: semantics generate examples/supply-chain --target ai-context --output dist/ai
 
       - name: Upload generated docs
         uses: actions/upload-artifact@v4

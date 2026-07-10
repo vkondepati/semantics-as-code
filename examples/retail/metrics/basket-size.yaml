@@ -1,0 +1,22 @@
+id: average-basket-size
+kind: metric
+name: Average Basket Size
+display_name: Average Basket Size
+description: Average number of units purchased per completed retail transaction.
+formula: SUM(units_sold) / COUNT(transaction_id)
+grain: Retail Transaction
+owner: Retail Operations
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Internal
+dimensions:
+  - Retail Store
+  - Retail Product
+quality:
+  - units_sold completeness > 99%
+glossary_terms:
+  - Average Basket Size
+ai_context: Use this metric to understand transaction basket depth and merchandising performance.
+extensions: {}

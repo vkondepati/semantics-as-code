@@ -1,0 +1,19 @@
+id: package-id
+kind: semantic_package
+name: Package Name
+display_name: Package Name
+description: Describe the semantic package and its intended scope.
+owner: Data Governance
+version: 0.2.0
+spec_version: 0.2.0
+status: draft
+tags: []
+lint:
+  rules:
+    SAC-LINT-003: warning
+    SAC-LINT-004: warning
+    SAC-LINT-005: warning
+generators:
+  markdown:
+    enabled: true
+extensions: {}

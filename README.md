@@ -29,6 +29,8 @@ pip install -e ".[dev]"
 semantics validate examples/supply-chain
 semantics lint examples/supply-chain
 semantics generate examples/supply-chain --target markdown --output dist/docs
+semantics generate examples/supply-chain --target mermaid --output dist/diagrams
+semantics generate examples/supply-chain --target html --output dist/html
 ```
 
 ## Repository Structure
@@ -58,13 +60,18 @@ tests/                Unit and integration tests
 semantics validate <path>
 semantics lint <path>
 semantics generate <path> --target markdown --output dist/docs
+semantics generate <path> --target mermaid --output dist/diagrams
+semantics generate <path> --target html --output dist/html
+semantics generate <path> --target dbt --output dist/dbt
+semantics generate <path> --target openmetadata --output dist/openmetadata
+semantics generate <path> --target ai-context --output dist/ai
+semantics diff --base examples/supply-chain --head examples/retail
 ```
 
 Planned commands:
 
 ```bash
 semantics test <path>
-semantics diff --base main --head current
 ```
 
 ## Comparison Matrix
@@ -82,7 +89,7 @@ semantics diff --base main --head current
 ## Roadmap
 
 - Version 0.1: specification, starter kit, schemas, validation, linting, Markdown docs, CI.
-- Version 0.2: generators, documentation site, metric view generation, expanded examples.
+- Version 0.2: Mermaid, HTML, dbt, OpenMetadata, AI context generators, manifests, configurable linting, semantic diff, expanded examples.
 - Version 0.5: knowledge graph generation, AI context generation, OpenMetadata and dbt integrations.
 - Version 1.0: stable vendor adapters and compatibility test suite.
 

@@ -1,0 +1,14 @@
+id: loyalty-retention-rate-term
+kind: glossary_term
+name: Loyalty Retention Rate
+display_name: Loyalty Retention Rate
+definition: Share of loyalty members who continue purchasing within a defined retention period.
+owner: Loyalty Operations
+steward: Data Governance
+domain: Loyalty
+version: 0.2.0
+status: active
+classification: Confidential
+related_objects:
+  - Loyalty Retention Rate
+extensions: {}

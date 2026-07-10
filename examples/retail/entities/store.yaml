@@ -1,0 +1,20 @@
+id: retail-store
+kind: entity
+name: Retail Store
+display_name: Retail Store
+description: Physical or digital retail location where customer transactions occur.
+business_key: store_id
+owner: Store Operations
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.retail_store
+relationships:
+  - Retail Transaction
+quality:
+  - store_id completeness > 99%
+ai_context: Represents a retail selling location used for store performance reporting.
+extensions: {}

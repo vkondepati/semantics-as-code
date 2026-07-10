@@ -1,6 +1,6 @@
 # Specification
 
-Semantics as Code definitions are YAML files with a required `kind` field. Version 0.1 supports domains, entities, metrics, glossary terms, relationships, and quality expectations.
+Semantics as Code definitions are YAML files with a required `kind` field. The current reference implementation supports semantic packages, domains, entities, metrics, glossary terms, relationships, and quality expectations.
 
 ## Common Fields
 
@@ -18,6 +18,27 @@ Semantics as Code definitions are YAML files with a required `kind` field. Versi
 | `status` | Recommended | `draft`, `active`, `deprecated`, or `retired`. |
 | `classification` | Optional | `Public`, `Internal`, `Confidential`, or `Restricted`. |
 | `extensions` | Optional | Namespaced vendor or organization metadata. |
+
+## Semantic Package Manifest
+
+A package can include `semantics.yaml` at its root.
+
+```yaml
+id: supply-chain
+kind: semantic_package
+name: Supply Chain
+display_name: Supply Chain
+description: Supply chain starter semantic package.
+owner: Data Governance
+version: 0.2.0
+spec_version: 0.2.0
+lint:
+  rules:
+    SAC-LINT-005: warning
+extensions: {}
+```
+
+The manifest can configure lint severities with `off`, `warning`, or `error`.
 
 ## Extension Model
 

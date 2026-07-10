@@ -8,6 +8,7 @@ from semantics.core.errors import Diagnostic
 
 
 SUPPORTED_KINDS = {
+    "semantic_package",
     "domain",
     "entity",
     "metric",
@@ -84,6 +85,10 @@ class Registry:
 
     def all(self) -> Iterable[SemanticObject]:
         return sorted(self.objects.values(), key=lambda obj: (obj.kind, obj.name.lower()))
+
+    def package(self) -> Optional[SemanticObject]:
+        packages = self.by_kind("semantic_package")
+        return packages[0] if packages else None
 
 
 def normalize_ref(value: str) -> str:

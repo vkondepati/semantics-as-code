@@ -1,0 +1,14 @@
+id: average-basket-size-term
+kind: glossary_term
+name: Average Basket Size
+display_name: Average Basket Size
+definition: Average quantity of items purchased in a completed retail transaction.
+owner: Retail Operations
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Internal
+related_objects:
+  - Average Basket Size
+extensions: {}

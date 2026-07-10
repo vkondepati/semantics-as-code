@@ -106,6 +106,9 @@ def validate_references(registry: Registry) -> List[Diagnostic]:
     diagnostics: List[Diagnostic] = []
 
     for obj in registry.all():
+        if obj.kind == "semantic_package":
+            continue
+
         domain = obj.data.get("domain")
         if domain and not _resolve_kind(registry, domain, "domain"):
             diagnostics.append(_missing_ref(obj, "SAC-REF-001", "domain", domain))

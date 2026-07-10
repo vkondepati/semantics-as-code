@@ -1,0 +1,21 @@
+id: loyalty-retention-rate
+kind: metric
+name: Loyalty Retention Rate
+display_name: Loyalty Retention Rate
+description: Percentage of loyalty customers with repeat purchases during the retention window.
+formula: SUM(retained_customer_flag) / COUNT(customer_id)
+grain: Loyalty Account
+owner: Loyalty Operations
+steward: Data Governance
+domain: Loyalty
+version: 0.2.0
+status: active
+classification: Confidential
+dimensions:
+  - Retail Customer
+quality:
+  - retained_customer_flag completeness > 98%
+glossary_terms:
+  - Loyalty Retention Rate
+ai_context: Use this metric to evaluate loyalty program retention and repeat purchase behavior.
+extensions: {}

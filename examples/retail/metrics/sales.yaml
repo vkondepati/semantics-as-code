@@ -1,0 +1,25 @@
+id: retail-sales
+kind: metric
+name: Retail Sales
+display_name: Retail Sales
+description: Net sales amount from completed retail transactions after returns and discounts.
+formula: SUM(net_sales_amount)
+grain: Retail Transaction
+owner: Finance
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Confidential
+dimensions:
+  - Retail Customer
+  - Retail Product
+  - Retail Store
+filters:
+  - transaction_status = 'Completed'
+quality:
+  - reconciles with retail sales ledger.
+glossary_terms:
+  - Retail Sales
+ai_context: Use this metric for retail revenue analysis across customers, products, and stores.
+extensions: {}

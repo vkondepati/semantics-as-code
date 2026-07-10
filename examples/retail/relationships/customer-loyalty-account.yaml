@@ -1,0 +1,13 @@
+id: retail-customer-loyalty-account
+kind: relationship
+name: Retail Customer Loyalty Account
+display_name: Retail Customer Loyalty Account
+description: A retail customer can be associated with a loyalty account.
+from: Retail Customer
+to: Loyalty Account
+relationship_type: one_to_one
+owner: Loyalty Operations
+domain: Loyalty
+version: 0.2.0
+status: active
+extensions: {}

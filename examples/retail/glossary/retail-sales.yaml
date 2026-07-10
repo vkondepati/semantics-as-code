@@ -1,0 +1,14 @@
+id: retail-sales-term
+kind: glossary_term
+name: Retail Sales
+display_name: Retail Sales
+definition: Net sales amount for completed retail transactions after returns and discounts.
+owner: Finance
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Confidential
+related_objects:
+  - Retail Sales
+extensions: {}

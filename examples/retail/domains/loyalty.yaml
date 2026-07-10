@@ -1,0 +1,12 @@
+id: retail-loyalty
+kind: domain
+name: Loyalty
+display_name: Loyalty
+description: Customer loyalty, membership, rewards, and retention management domain.
+owner: Loyalty Operations
+steward: Data Governance
+version: 0.2.0
+status: active
+tags:
+  - retail
+extensions: {}

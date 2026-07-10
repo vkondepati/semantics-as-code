@@ -30,7 +30,22 @@ Linting checks description quality, ownership, stewardship, quality expectations
 semantics generate examples/supply-chain --target markdown --output dist/docs
 ```
 
-Version 0.1 supports the `markdown` target.
+Supported targets:
+
+- `markdown`
+- `mermaid`
+- `html`
+- `dbt`
+- `openmetadata`
+- `ai-context`
+
+## Diff
+
+```bash
+semantics diff --base examples/supply-chain --head examples/retail
+```
+
+Diff compares semantic object ids and content between two package paths.
 
 ## Exit Codes
 

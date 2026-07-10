@@ -1,0 +1,13 @@
+id: retail-store-transactions
+kind: relationship
+name: Retail Store Transactions
+display_name: Retail Store Transactions
+description: A retail store processes many retail transactions.
+from: Retail Store
+to: Retail Transaction
+relationship_type: one_to_many
+owner: Store Operations
+domain: Commerce
+version: 0.2.0
+status: active
+extensions: {}

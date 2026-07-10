@@ -1,0 +1,20 @@
+id: loyalty-account
+kind: entity
+name: Loyalty Account
+display_name: Loyalty Account
+description: Membership account used to track customer rewards, points, tiers, and retention.
+business_key: loyalty_account_id
+owner: Loyalty Operations
+steward: Data Governance
+domain: Loyalty
+version: 0.2.0
+status: active
+classification: Confidential
+pii: true
+canonical_table: gold.loyalty_account
+relationships:
+  - Retail Customer
+quality:
+  - loyalty_account_id completeness > 98%
+ai_context: Represents the rewards membership context for customer retention and personalization.
+extensions: {}

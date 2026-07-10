@@ -1,0 +1,18 @@
+id: retail
+kind: semantic_package
+name: Retail
+display_name: Retail
+description: Retail starter semantic package for store, customer, product, and loyalty analytics.
+owner: Data Governance
+version: 0.2.0
+spec_version: 0.2.0
+status: active
+tags:
+  - retail
+  - starter-kit
+lint:
+  rules:
+    SAC-LINT-003: warning
+    SAC-LINT-004: warning
+    SAC-LINT-005: warning
+extensions: {}

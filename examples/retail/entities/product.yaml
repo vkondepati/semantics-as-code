@@ -1,0 +1,22 @@
+id: retail-product
+kind: entity
+name: Retail Product
+display_name: Retail Product
+description: Sellable retail item with category, brand, and merchandising attributes.
+business_key: product_id
+owner: Merchandising
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Internal
+pii: false
+canonical_table: gold.retail_product
+relationships:
+  - Retail Transaction
+synonyms:
+  - SKU
+quality:
+  - product_id completeness > 99%
+ai_context: Represents an item sold in retail transactions and merchandising reports.
+extensions: {}

@@ -304,15 +304,15 @@ Acceptance checks:
 
 ## 5. Version 0.2 Candidate Tasks
 
-- [ ] Add Mermaid diagram generator.
-- [ ] Add HTML documentation generator.
-- [ ] Add dbt Semantic Layer generator.
-- [ ] Add OpenMetadata generator.
-- [ ] Add AI context file generator.
-- [ ] Add additional industry examples.
-- [ ] Add semantic package manifest.
-- [ ] Add configurable lint rules.
-- [ ] Add `semantics diff`.
+- [x] Add Mermaid diagram generator.
+- [x] Add HTML documentation generator.
+- [x] Add dbt Semantic Layer generator.
+- [x] Add OpenMetadata generator.
+- [x] Add AI context file generator.
+- [x] Add additional industry examples.
+- [x] Add semantic package manifest.
+- [x] Add configurable lint rules.
+- [x] Add `semantics diff`.
 
 ## 6. Version 0.5 Candidate Tasks
 

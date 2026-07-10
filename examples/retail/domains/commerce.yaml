@@ -1,0 +1,12 @@
+id: retail-commerce
+kind: domain
+name: Commerce
+display_name: Commerce
+description: Retail sales, transaction, store, and product performance domain.
+owner: Retail Operations
+steward: Data Governance
+version: 0.2.0
+status: active
+tags:
+  - retail
+extensions: {}

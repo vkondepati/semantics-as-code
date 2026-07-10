@@ -2,9 +2,11 @@
 
 Generators transform a loaded semantic registry into output artifacts. Generators consume the registry rather than parsing YAML independently.
 
-## Version 0.1
+## Supported Generators
 
-The Markdown generator creates:
+### Markdown
+
+Creates:
 
 - `index.md`
 - `domains.md`
@@ -13,13 +15,31 @@ The Markdown generator creates:
 - `glossary.md`
 - `relationships.md`
 
+### Mermaid
+
+Creates `semantic-graph.mmd` with an entity relationship diagram.
+
+### HTML
+
+Creates a standalone `index.html` documentation page.
+
+### dbt
+
+Creates `semantic_models.yml` with dbt Semantic Layer-oriented scaffolding.
+
+### OpenMetadata
+
+Creates `openmetadata.json` with glossary, domain, entity, metric, and relationship payloads.
+
+### AI Context
+
+Creates:
+
+- `ai-context.json`
+- `ai-context.md`
+
 ## Planned Generators
 
-- Mermaid diagrams.
-- HTML documentation.
-- AI context files.
-- dbt Semantic Layer artifacts.
-- OpenMetadata import files.
 - Power BI semantic model scaffolding.
 - Knowledge graph triples.
 - OpenAPI extensions.

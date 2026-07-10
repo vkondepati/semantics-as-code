@@ -1,0 +1,23 @@
+id: retail-customer
+kind: entity
+name: Retail Customer
+display_name: Retail Customer
+description: Shopper who purchases goods through a retail store or digital channel.
+business_key: customer_id
+owner: Retail Operations
+steward: Data Governance
+domain: Loyalty
+version: 0.2.0
+status: active
+classification: Confidential
+pii: true
+canonical_table: gold.retail_customer
+relationships:
+  - Retail Transaction
+  - Loyalty Account
+synonyms:
+  - Shopper
+quality:
+  - customer_id completeness > 99%
+ai_context: Represents the shopper for sales, loyalty, retention, and personalization analysis.
+extensions: {}

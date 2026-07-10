@@ -1,0 +1,22 @@
+id: retail-transaction
+kind: entity
+name: Retail Transaction
+display_name: Retail Transaction
+description: Completed retail purchase event containing products, store, customer, and tender details.
+business_key: transaction_id
+owner: Retail Operations
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+classification: Confidential
+pii: false
+canonical_table: gold.retail_transaction
+relationships:
+  - Retail Customer
+  - Retail Product
+  - Retail Store
+quality:
+  - transaction_id completeness > 99%
+ai_context: Represents the transaction grain for retail revenue and basket analysis.
+extensions: {}

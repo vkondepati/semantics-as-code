@@ -1,0 +1,14 @@
+id: retail-sales-reconciliation
+kind: quality_expectation
+name: Retail Sales Reconciliation
+display_name: Retail Sales Reconciliation
+description: Retail sales must reconcile to the point-of-sale financial ledger.
+target: Retail Sales
+expectation: daily retail sales variance against POS ledger < 0.5%
+severity: critical
+owner: Finance
+steward: Data Governance
+domain: Commerce
+version: 0.2.0
+status: active
+extensions: {}

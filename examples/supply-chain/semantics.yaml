@@ -1,0 +1,31 @@
+id: supply-chain
+kind: semantic_package
+name: Supply Chain
+display_name: Supply Chain
+description: Supply chain starter semantic package for enterprise semantics as code.
+owner: Data Governance
+version: 0.2.0
+spec_version: 0.2.0
+status: active
+tags:
+  - supply-chain
+  - starter-kit
+lint:
+  rules:
+    SAC-LINT-003: warning
+    SAC-LINT-004: warning
+    SAC-LINT-005: warning
+generators:
+  markdown:
+    enabled: true
+  mermaid:
+    enabled: true
+  html:
+    enabled: true
+  dbt:
+    enabled: true
+  openmetadata:
+    enabled: true
+  ai-context:
+    enabled: true
+extensions: {}
