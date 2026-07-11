@@ -19,4 +19,12 @@ import { generatorTargets } from "@data/site";
       ))}
     </div>
   </div></section>
+
+  <section class="section"><div class="shell">
+    <p class="kicker">Deploying</p>
+    <h2>Generate writes files. Deploy publishes them.</h2>
+    <p class="lead">These are separate steps. <code>semantics generate</code> above only ever writes local artifact files — it never talks to a real platform. <code>semantics deploy</code> takes those files and publishes them, after checking the target environment's governance gates (approval, validation/lint status, a rollback plan) declared in a project's <code>semantic-project.yaml</code>.</p>
+    <p>The only deploy adapter shipped today is <code>git</code>: it commits generated artifacts into a target repository/branch, optionally pushing with a credential read from an environment variable. Cloud-platform adapters (Databricks, Snowflake, Fabric, BigQuery) currently implement <code>generate</code> only.</p>
+    <CodeBlock id="cmd-deploy" code={`semantics deploy starter-kits/enterprise --environment dev --artifacts dist/databricks --repo ../deploy-target\nsemantics rollback <reference> --repo ../deploy-target`} />
+  </div></section>
 </BaseLayout>

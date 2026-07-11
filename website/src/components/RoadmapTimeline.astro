@@ -4,7 +4,7 @@ interface Props { items: Item[]; }
 const { items } = Astro.props;
 ---
 <div class="timeline">
-  {items.slice(0, 80).map((item) => (
+  {items.map((item) => (
     <article class:list={["roadmap-item", item.done ? "done" : "planned"]}>
       <span>{item.done ? "Complete" : "Planned"}</span>
       <p>{item.text}</p>

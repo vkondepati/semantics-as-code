@@ -1,6 +1,6 @@
 export const repo = "https://github.com/vkondepati/semantics-as-code";
 export const siteUrl = "https://vkondepati.github.io/semantics-as-code/";
-export const version = "1.0.0";
+export const version = "1.1.0";
 
 export const nav = [
   { label: "Home", href: "/" },
@@ -80,6 +80,6 @@ export const lifecycle = [
   "Validate and lint",
   "Diff semantic changes",
   "Generate artifacts",
-  "Deploy to platforms",
+  "Deploy through gated CI/CD",
   "Observe and govern"
 ];
